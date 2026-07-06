@@ -1,0 +1,5361 @@
+{
+  "version": "2.14",
+  "children": [
+    {
+      "type": "frame",
+      "id": "Nsjap",
+      "x": -4626,
+      "y": 2571,
+      "name": "Pages",
+      "width": 520,
+      "height": 3543,
+      "fill": "#F7F1EB",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 32,
+      "children": [
+        {
+          "type": "text",
+          "id": "WFqIB",
+          "fill": "#2D2D2D",
+          "content": "Pages",
+          "fontFamily": "Inter",
+          "fontSize": 28,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "aax9y",
+          "name": "Home/Page",
+          "width": 390,
+          "fill": "#FFF9F4",
+          "cornerRadius": 36,
+          "stroke": "#EDE1D5",
+          "strokeWidth": 1,
+          "strokeAlignment": "inner",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            0,
+            0,
+            16,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "mCzOT",
+              "name": "Status Bar",
+              "width": 390,
+              "height": 62,
+              "fill": "#FFF9F4",
+              "padding": [
+                0,
+                4
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "TCT7C",
+                  "fill": "#2D2D2D",
+                  "content": "9:41",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "M22zq",
+                  "fill": "#2D2D2D",
+                  "content": "5G  100%",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "baee3",
+              "name": "Home Content",
+              "width": "fill_container",
+              "fill": "#FFF9F4",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": [
+                0,
+                24
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "S8ftGR",
+                  "name": "Top Navigation",
+                  "width": 342,
+                  "height": 62,
+                  "fill": "#FFF9F4",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Vn2oC",
+                      "fill": "#FFF9F4",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ptlzd",
+                          "fill": "#2D2D2D",
+                          "content": "Lisa Handmade Cookies",
+                          "fontFamily": "Inter",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lyBkj",
+                          "fill": "#8A7F76",
+                          "content": "Handmade festive cookies",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "otrQd",
+                      "fill": "#FFF9F4",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "ps0oJ",
+                          "width": 36,
+                          "height": 36,
+                          "fill": "#FFFDFC",
+                          "cornerRadius": 18,
+                          "stroke": "#F0E3D7",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "id": "d6mYm",
+                              "fill": {
+                                "type": "image",
+                                "enabled": true,
+                                "url": "../../../../Downloads/Downloads/assets/icon-bag.svg",
+                                "mode": "fit"
+                              },
+                              "width": 18,
+                              "height": 18
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ORqMQ",
+                          "width": 36,
+                          "height": 36,
+                          "fill": "#FFFDFC",
+                          "cornerRadius": 18,
+                          "stroke": "#F0E3D7",
+                          "strokeWidth": 1,
+                          "strokeAlignment": "inner",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "id": "LUNXX",
+                              "fill": {
+                                "type": "image",
+                                "enabled": true,
+                                "url": "../../../../Downloads/Downloads/assets/icon-bell.svg",
+                                "mode": "fit"
+                              },
+                              "width": 18,
+                              "height": 18
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "s27yw",
+                  "name": "Search Bar",
+                  "width": 342,
+                  "height": 56,
+                  "fill": "#FFFDFC",
+                  "cornerRadius": 20,
+                  "stroke": "#F0E3D7",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "gap": 12,
+                  "padding": [
+                    0,
+                    20
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "d0rgq",
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../../../Downloads/Downloads/assets/icon-search.svg",
+                        "mode": "fit"
+                      },
+                      "width": 18,
+                      "height": 18
+                    },
+                    {
+                      "type": "text",
+                      "id": "Qych7",
+                      "fill": "#8A7F76",
+                      "content": "搜索黄梨球、礼盒或新年送礼",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "t6Zb72",
+                  "name": "Hero Banner",
+                  "width": 342,
+                  "height": 236,
+                  "fill": [
+                    "#FBF3EC",
+                    {
+                      "type": "gradient",
+                      "gradientType": "linear",
+                      "enabled": true,
+                      "rotation": 180,
+                      "size": {
+                        "height": 1
+                      },
+                      "colors": [
+                        {
+                          "color": "#FFF9F4",
+                          "position": 0
+                        },
+                        {
+                          "color": "#F6E8DB",
+                          "position": 1
+                        }
+                      ]
+                    }
+                  ],
+                  "cornerRadius": 24,
+                  "padding": 26,
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "tZuys",
+                      "width": 168,
+                      "fill": "#FBEFE6",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "spsU3",
+                          "fill": "#B33A35",
+                          "content": "新年快乐",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kbR2K",
+                          "fill": "#2D2D2D",
+                          "content": "传承经典美味\n分享满口幸福",
+                          "fontFamily": "Inter",
+                          "fontSize": 26,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "L7js7O",
+                          "fill": "#8A7F76",
+                          "content": "纯手工制作，精选优质食材",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "vVVZg",
+                          "name": "Primary Button/Default",
+                          "width": 132,
+                          "height": 50,
+                          "fill": "#C62828",
+                          "cornerRadius": 16,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "W5aIb",
+                              "fill": "#FFFFFF",
+                              "content": "立即选购",
+                              "fontFamily": "Inter",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "qhzYf",
+                      "width": 110,
+                      "height": "fill_container",
+                      "fill": "#FBEFE6",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": [
+                            28,
+                            28,
+                            20,
+                            20
+                          ],
+                          "id": "xk21P",
+                          "fill": [
+                            "#FFFFFF",
+                            {
+                              "type": "gradient",
+                              "gradientType": "linear",
+                              "enabled": true,
+                              "rotation": 180,
+                              "size": {
+                                "height": 1
+                              },
+                              "colors": [
+                                {
+                                  "color": "#FFFFFF",
+                                  "position": 0
+                                },
+                                {
+                                  "color": "#F5ECDD",
+                                  "position": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "width": 72,
+                          "height": 88,
+                          "stroke": "#E8D4C3",
+                          "strokeWidth": 2,
+                          "strokeAlignment": "inner"
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 12,
+                          "id": "f179vd",
+                          "fill": "#D8A23A",
+                          "width": 80,
+                          "height": 18
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "EcVqG",
+                          "fill": "#E1B55A",
+                          "width": 18,
+                          "height": 18
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "DtAdB",
+                          "fill": "#D88F52",
+                          "width": 16,
+                          "height": 16
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "gspWy",
+                  "fill": "#2D2D2D",
+                  "content": "品牌特色",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "AopS9",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "C7mZ5v",
+                      "name": "Feature Card",
+                      "width": 160,
+                      "height": 110,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 18,
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "jRzZe",
+                          "fill": "#F5D6B3",
+                          "width": 34,
+                          "height": 34
+                        },
+                        {
+                          "type": "text",
+                          "id": "RTeCO",
+                          "fill": "#2D2D2D",
+                          "content": "优质食材",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pm5tI",
+                          "fill": "#777777",
+                          "content": "精选原料",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MqPpl",
+                      "name": "Feature Card",
+                      "width": 160,
+                      "height": 110,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 18,
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "g8MOJ",
+                          "fill": "#F5D6B3",
+                          "width": 34,
+                          "height": 34
+                        },
+                        {
+                          "type": "text",
+                          "id": "rn0RO",
+                          "fill": "#2D2D2D",
+                          "content": "纯手工制作",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "AJAOz",
+                          "fill": "#777777",
+                          "content": "每日新鲜现烤",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "BN2gY",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "cBSIh",
+                      "name": "Feature Card",
+                      "width": 160,
+                      "height": 110,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 18,
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "oB1Mv",
+                          "fill": "#F5D6B3",
+                          "width": 34,
+                          "height": 34
+                        },
+                        {
+                          "type": "text",
+                          "id": "a77DDt",
+                          "fill": "#2D2D2D",
+                          "content": "品质保证",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pG5AT",
+                          "fill": "#777777",
+                          "content": "送礼更安心",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "XRb8r",
+                      "name": "Feature Card",
+                      "width": 160,
+                      "height": 110,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 18,
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "l5S15",
+                          "fill": "#F5D6B3",
+                          "width": 34,
+                          "height": 34
+                        },
+                        {
+                          "type": "text",
+                          "id": "vzHvu",
+                          "fill": "#2D2D2D",
+                          "content": "快捷配送",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "WmHNr",
+                          "fill": "#777777",
+                          "content": "节前准时送达",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "R841lC",
+                  "fill": "#2D2D2D",
+                  "content": "热门分类",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "AcPUs",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "awn95",
+                      "name": "Category Card",
+                      "width": 160,
+                      "height": 196,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": [
+                        12,
+                        12,
+                        16,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 16,
+                          "id": "bP8V2",
+                          "fill": [
+                            "#F5D6B3",
+                            {
+                              "type": "gradient",
+                              "gradientType": "linear",
+                              "enabled": true,
+                              "rotation": 180,
+                              "size": {
+                                "height": 1
+                              },
+                              "colors": [
+                                {
+                                  "color": "#F8E6D1",
+                                  "position": 0
+                                },
+                                {
+                                  "color": "#EFD0A7",
+                                  "position": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "width": "fill_container",
+                          "height": 116
+                        },
+                        {
+                          "type": "text",
+                          "id": "OIhi6",
+                          "fill": "#2D2D2D",
+                          "content": "黄梨球",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "RHzu3",
+                          "fill": "#777777",
+                          "content": "招牌经典",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pk7Gl",
+                      "name": "Category Card",
+                      "width": 160,
+                      "height": 196,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": [
+                        12,
+                        12,
+                        16,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 16,
+                          "id": "a1kHT8",
+                          "fill": [
+                            "#F1DFC9",
+                            {
+                              "type": "gradient",
+                              "gradientType": "linear",
+                              "enabled": true,
+                              "rotation": 180,
+                              "size": {
+                                "height": 1
+                              },
+                              "colors": [
+                                {
+                                  "color": "#F8EBDD",
+                                  "position": 0
+                                },
+                                {
+                                  "color": "#E2C39A",
+                                  "position": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "width": "fill_container",
+                          "height": 116
+                        },
+                        {
+                          "type": "text",
+                          "id": "E29oq",
+                          "fill": "#2D2D2D",
+                          "content": "杏仁饼",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "zG0Ch",
+                          "fill": "#777777",
+                          "content": "香浓酥脆",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cPYbk",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ryO49",
+                      "name": "Category Card",
+                      "width": 160,
+                      "height": 196,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": [
+                        12,
+                        12,
+                        16,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 16,
+                          "id": "S1dId",
+                          "fill": [
+                            "#EFD5B9",
+                            {
+                              "type": "gradient",
+                              "gradientType": "linear",
+                              "enabled": true,
+                              "rotation": 180,
+                              "size": {
+                                "height": 1
+                              },
+                              "colors": [
+                                {
+                                  "color": "#F8EBDD",
+                                  "position": 0
+                                },
+                                {
+                                  "color": "#DDB486",
+                                  "position": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "width": "fill_container",
+                          "height": 116
+                        },
+                        {
+                          "type": "text",
+                          "id": "cNYHc",
+                          "fill": "#2D2D2D",
+                          "content": "Bangkit",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "HSzq0",
+                          "fill": "#777777",
+                          "content": "轻盈奶香",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "A8yCb",
+                      "name": "Category Card",
+                      "width": 160,
+                      "height": 196,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": [
+                        12,
+                        12,
+                        16,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 16,
+                          "id": "x6wFPp",
+                          "fill": [
+                            "#F0D8C0",
+                            {
+                              "type": "gradient",
+                              "gradientType": "linear",
+                              "enabled": true,
+                              "rotation": 180,
+                              "size": {
+                                "height": 1
+                              },
+                              "colors": [
+                                {
+                                  "color": "#F9EEDF",
+                                  "position": 0
+                                },
+                                {
+                                  "color": "#DDB58E",
+                                  "position": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "width": "fill_container",
+                          "height": 116
+                        },
+                        {
+                          "type": "text",
+                          "id": "A8XgCy",
+                          "fill": "#2D2D2D",
+                          "content": "Kuih Kapit",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "desSb",
+                          "fill": "#777777",
+                          "content": "薄脆香甜",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vIMES",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "d0oa79",
+                      "name": "Category Card",
+                      "width": 160,
+                      "height": 196,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": [
+                        12,
+                        12,
+                        16,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 16,
+                          "id": "Osc7L",
+                          "fill": [
+                            "#F4E4D6",
+                            {
+                              "type": "gradient",
+                              "gradientType": "linear",
+                              "enabled": true,
+                              "rotation": 180,
+                              "size": {
+                                "height": 1
+                              },
+                              "colors": [
+                                {
+                                  "color": "#FFF7F0",
+                                  "position": 0
+                                },
+                                {
+                                  "color": "#E9CFB2",
+                                  "position": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "width": "fill_container",
+                          "height": 116
+                        },
+                        {
+                          "type": "text",
+                          "id": "d55TJ",
+                          "fill": "#2D2D2D",
+                          "content": "礼盒专区",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "W1Wvj",
+                          "fill": "#777777",
+                          "content": "送礼优选",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Prs4Z",
+                  "fill": "#2D2D2D",
+                  "content": "热销精选",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "b9oZxO",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "flmZC",
+                      "name": "Product Card",
+                      "width": 164,
+                      "height": 304,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": [
+                        12,
+                        12,
+                        14,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 16,
+                          "id": "S0ahOO",
+                          "fill": [
+                            "#F5D6B3",
+                            {
+                              "type": "gradient",
+                              "gradientType": "linear",
+                              "enabled": true,
+                              "rotation": 180,
+                              "size": {
+                                "height": 1
+                              },
+                              "colors": [
+                                {
+                                  "color": "#F9E7D3",
+                                  "position": 0
+                                },
+                                {
+                                  "color": "#E8C291",
+                                  "position": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "width": "fill_container",
+                          "height": 116
+                        },
+                        {
+                          "type": "text",
+                          "id": "OLLxl",
+                          "fill": "#2D2D2D",
+                          "content": "Lisa 黄梨球",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "W2L3qU",
+                          "fill": "#777777",
+                          "content": "酥香入口，送礼首选",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "V9xnN",
+                          "width": 48,
+                          "height": 24,
+                          "fill": "#FCE9E7",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "D34dG",
+                              "fill": "#C62828",
+                              "content": "热销",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "z3s7w",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "mskXP",
+                              "fill": "#C62828",
+                              "content": "SGD 18.80",
+                              "fontFamily": "Inter",
+                              "fontSize": 18,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Omk64",
+                              "width": 56,
+                              "height": 32,
+                              "fill": "#C62828",
+                              "cornerRadius": 16,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "G1mPXz",
+                                  "fill": "#FFFFFF",
+                                  "content": "加入",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Dvvoh",
+                      "name": "Product Card",
+                      "width": 164,
+                      "height": 304,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": [
+                        12,
+                        12,
+                        14,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 16,
+                          "id": "HvSWM",
+                          "fill": [
+                            "#EFDCC7",
+                            {
+                              "type": "gradient",
+                              "gradientType": "linear",
+                              "enabled": true,
+                              "rotation": 180,
+                              "size": {
+                                "height": 1
+                              },
+                              "colors": [
+                                {
+                                  "color": "#F7EBDD",
+                                  "position": 0
+                                },
+                                {
+                                  "color": "#DDB88E",
+                                  "position": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "width": "fill_container",
+                          "height": 116
+                        },
+                        {
+                          "type": "text",
+                          "id": "QW7Mu",
+                          "fill": "#2D2D2D",
+                          "content": "杏仁饼",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "vBYki",
+                          "fill": "#777777",
+                          "content": "松化细腻，口感香浓",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "CqLXu",
+                          "width": 48,
+                          "height": 24,
+                          "fill": "#F8EFE2",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "QXsSA",
+                              "fill": "#A56A28",
+                              "content": "经典",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "X7ANzm",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Jd813",
+                              "fill": "#C62828",
+                              "content": "SGD 16.80",
+                              "fontFamily": "Inter",
+                              "fontSize": 18,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "l70P6",
+                              "width": 56,
+                              "height": 32,
+                              "fill": "#C62828",
+                              "cornerRadius": 16,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "e08UM",
+                                  "fill": "#FFFFFF",
+                                  "content": "加入",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AoNhN",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "duEgc",
+                      "name": "Product Card",
+                      "width": 164,
+                      "height": 304,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": [
+                        12,
+                        12,
+                        14,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 16,
+                          "id": "TwuiA",
+                          "fill": [
+                            "#EFD9C0",
+                            {
+                              "type": "gradient",
+                              "gradientType": "linear",
+                              "enabled": true,
+                              "rotation": 180,
+                              "size": {
+                                "height": 1
+                              },
+                              "colors": [
+                                {
+                                  "color": "#FAEEDD",
+                                  "position": 0
+                                },
+                                {
+                                  "color": "#DEBC92",
+                                  "position": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "width": "fill_container",
+                          "height": 116
+                        },
+                        {
+                          "type": "text",
+                          "id": "a5nFC",
+                          "fill": "#2D2D2D",
+                          "content": "Bangkit",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "DGG2a",
+                          "fill": "#777777",
+                          "content": "奶香松脆，入口即化",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "rGfKk",
+                          "width": 48,
+                          "height": 24,
+                          "fill": "#F7F0E6",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "h6DgCr",
+                              "fill": "#8B6A45",
+                              "content": "人气",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "vL19i",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "JS9kr",
+                              "fill": "#C62828",
+                              "content": "SGD 15.80",
+                              "fontFamily": "Inter",
+                              "fontSize": 18,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "p7IRj",
+                              "width": 56,
+                              "height": 32,
+                              "fill": "#C62828",
+                              "cornerRadius": 16,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "J90q0S",
+                                  "fill": "#FFFFFF",
+                                  "content": "加入",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "oAIr0",
+                      "name": "Product Card",
+                      "width": 164,
+                      "height": 304,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 20,
+                      "stroke": "#EEEEEE",
+                      "strokeWidth": 1,
+                      "strokeAlignment": "inner",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": [
+                        12,
+                        12,
+                        14,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 16,
+                          "id": "DtT6q",
+                          "fill": [
+                            "#F3E3D2",
+                            {
+                              "type": "gradient",
+                              "gradientType": "linear",
+                              "enabled": true,
+                              "rotation": 180,
+                              "size": {
+                                "height": 1
+                              },
+                              "colors": [
+                                {
+                                  "color": "#FFF6EE",
+                                  "position": 0
+                                },
+                                {
+                                  "color": "#E4CAB0",
+                                  "position": 1
+                                }
+                              ]
+                            }
+                          ],
+                          "width": "fill_container",
+                          "height": 116
+                        },
+                        {
+                          "type": "text",
+                          "id": "FnGpf",
+                          "fill": "#2D2D2D",
+                          "content": "Kuih Kapit",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "FJfXI",
+                          "fill": "#777777",
+                          "content": "传统薄脆，新年必备",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "a0ufGP",
+                          "width": 48,
+                          "height": 24,
+                          "fill": "#FCEEDA",
+                          "cornerRadius": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "EywpB",
+                              "fill": "#A56A28",
+                              "content": "节庆",
+                              "fontFamily": "Inter",
+                              "fontSize": 11,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "xobUh",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Gmvae",
+                              "fill": "#C62828",
+                              "content": "SGD 17.20",
+                              "fontFamily": "Inter",
+                              "fontSize": 18,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "XJ2Ot",
+                              "width": 56,
+                              "height": 32,
+                              "fill": "#C62828",
+                              "cornerRadius": 16,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "u4LN1",
+                                  "fill": "#FFFFFF",
+                                  "content": "加入",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "x9ilwG",
+                  "fill": "#2D2D2D",
+                  "content": "新春优惠",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "mUsvK",
+                  "name": "Promotion Card",
+                  "width": 342,
+                  "height": 162,
+                  "fill": [
+                    "#FFFFFF",
+                    {
+                      "type": "gradient",
+                      "gradientType": "linear",
+                      "enabled": true,
+                      "rotation": 180,
+                      "size": {
+                        "height": 1
+                      },
+                      "colors": [
+                        {
+                          "color": "#FFFFFF",
+                          "position": 0
+                        },
+                        {
+                          "color": "#FCF6EF",
+                          "position": 1
+                        }
+                      ]
+                    }
+                  ],
+                  "cornerRadius": 24,
+                  "stroke": "#EEDFD0",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "padding": 24,
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Ug9sy",
+                      "fill": "#C62828",
+                      "content": "Seasonal Privilege",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "mbPo7",
+                      "fill": "#2D2D2D",
+                      "content": "满 SGD 60 享免运与新春加购礼遇",
+                      "fontFamily": "Inter",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "uiGhD",
+                      "fill": "#777777",
+                      "content": "新年期间精选商品限时优惠",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "AKAkR",
+                  "fill": "#2D2D2D",
+                  "content": "礼盒推荐",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "InSgG",
+                  "name": "Promotion Card",
+                  "width": 342,
+                  "height": 162,
+                  "fill": [
+                    "#FFFFFF",
+                    {
+                      "type": "gradient",
+                      "gradientType": "linear",
+                      "enabled": true,
+                      "rotation": 180,
+                      "size": {
+                        "height": 1
+                      },
+                      "colors": [
+                        {
+                          "color": "#FFFFFF",
+                          "position": 0
+                        },
+                        {
+                          "color": "#FCF6EF",
+                          "position": 1
+                        }
+                      ]
+                    }
+                  ],
+                  "cornerRadius": 24,
+                  "stroke": "#EEDFD0",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "padding": 24,
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "cd6gC",
+                      "fill": "#C62828",
+                      "content": "Gift Selection",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FpzY0",
+                      "fill": "#2D2D2D",
+                      "content": "精选礼盒适合企业送礼与家庭拜年",
+                      "fontFamily": "Inter",
+                      "fontSize": 20,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HCs7O",
+                      "fill": "#777777",
+                      "content": "高级包装与节庆心意一次到位",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "xyCx5",
+                  "fill": "#2D2D2D",
+                  "content": "顾客评价",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "oKBNL",
+                  "name": "Review Card",
+                  "width": 342,
+                  "height": 176,
+                  "fill": "#FFFCFA",
+                  "cornerRadius": 20,
+                  "stroke": "#F0E3D7",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "BvIal",
+                      "fill": "#C62828",
+                      "content": "★★★★★ 4.9 推荐",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CsiCR",
+                      "fill": "#2D2D2D",
+                      "content": "包装很精致，黄梨球很香，送长辈也非常体面。",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "nsD0R",
+                      "fill": "#777777",
+                      "content": "林太太，Singapore",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "p8gbfW",
+                  "name": "Review Card",
+                  "width": 342,
+                  "height": 176,
+                  "fill": "#FFFCFA",
+                  "cornerRadius": 20,
+                  "stroke": "#F0E3D7",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 20,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "F1STP",
+                      "fill": "#C62828",
+                      "content": "★★★★★ 5.0 企业客户",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "v2VEB",
+                      "fill": "#2D2D2D",
+                      "content": "礼盒组合适合公司送礼，质感高级，配送也准时。",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "uz8bg",
+                      "fill": "#777777",
+                      "content": "Jason，Kuala Lumpur",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "UBDE9",
+              "width": "fill_container",
+              "fill": "#FFF9F4",
+              "padding": [
+                16,
+                0,
+                0,
+                0
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "m4CSK",
+                  "name": "Bottom Navigation",
+                  "width": 342,
+                  "height": 78,
+                  "fill": "#FFFFFFCC",
+                  "cornerRadius": 39,
+                  "stroke": "#F2E8DE",
+                  "strokeWidth": 1,
+                  "strokeAlignment": "inner",
+                  "padding": [
+                    12,
+                    18
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "f1uBbA",
+                      "fill": "#FCE9E7",
+                      "cornerRadius": 16,
+                      "padding": [
+                        8,
+                        12
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "T8TMzk",
+                          "fill": "#C62828",
+                          "content": "首页",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UbpjC",
+                      "fill": "#FFFFFF00",
+                      "cornerRadius": 16,
+                      "padding": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "yX163",
+                          "fill": "#777777",
+                          "content": "分类",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "g39JpK",
+                      "fill": "#FFFFFF00",
+                      "cornerRadius": 16,
+                      "padding": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "W5b0ZX",
+                          "fill": "#777777",
+                          "content": "礼盒",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "PGCMn",
+                      "fill": "#FFFFFF00",
+                      "cornerRadius": 16,
+                      "padding": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "f5de6P",
+                          "fill": "#777777",
+                          "content": "购物车",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "OSOEM",
+                      "fill": "#FFFFFF00",
+                      "cornerRadius": 16,
+                      "padding": 8,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "THmLt",
+                          "fill": "#777777",
+                          "content": "我的",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "sau6u",
+      "x": -10505,
+      "y": 11114,
+      "name": "Lisa Handmade Cookies - Home",
+      "clip": true,
+      "width": 390,
+      "fill": "$cream-white",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "SZQ4D",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 44,
+          "padding": [
+            14,
+            24,
+            0,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "vjIND",
+              "name": "Time",
+              "fill": "$deep-brown",
+              "content": "9:41",
+              "fontFamily": "$font-body",
+              "fontSize": 14,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "R4pB7",
+              "name": "Status Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "ZJXoA",
+                  "name": "Signal",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$deep-brown"
+                },
+                {
+                  "type": "icon",
+                  "id": "PYOZs",
+                  "name": "Wifi",
+                  "width": 14,
+                  "height": 14,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$deep-brown"
+                },
+                {
+                  "type": "icon",
+                  "id": "B8YCM3",
+                  "name": "Battery",
+                  "width": 16,
+                  "height": 14,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$deep-brown"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ZyEIr",
+          "name": "Header Divider",
+          "width": "fill_container",
+          "height": 1,
+          "fill": "$warm-beige"
+        },
+        {
+          "type": "frame",
+          "id": "kO6iA",
+          "name": "Header",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            12,
+            20
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "EtKMx",
+              "name": "Brand Name",
+              "fill": "$deep-brown",
+              "content": "LISA HANDMADE COOKIES",
+              "fontFamily": "$font-heading",
+              "fontSize": 18,
+              "fontWeight": "700",
+              "letterSpacing": 2
+            },
+            {
+              "type": "frame",
+              "id": "S3bdA",
+              "name": "Search Row",
+              "width": "fill_container",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DFKkl",
+                  "name": "Search Box",
+                  "width": "fill_container",
+                  "height": 40,
+                  "fill": "$white",
+                  "cornerRadius": "$radius-full",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#3C241512",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 6
+                  },
+                  "gap": 8,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "PQdVa",
+                      "name": "Search Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "search",
+                      "library": "lucide",
+                      "fill": "$soft-brown"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IGYW9",
+                      "name": "Search Placeholder",
+                      "fill": "$soft-brown",
+                      "content": "Search cookies & gifts...",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XDN18",
+                  "name": "Cart Button",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "$warm-beige",
+                  "cornerRadius": "$radius-full",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "LKAR4",
+                      "name": "Cart Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "shopping-bag",
+                      "library": "lucide",
+                      "fill": "$deep-brown"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "S3HtA",
+          "name": "Hero Container",
+          "clip": true,
+          "width": "fill_container",
+          "height": 420,
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "F5sAAF",
+              "x": 0,
+              "y": 0,
+              "name": "Hero Background",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "./images/generated-1783068084324.png",
+                "mode": "fill"
+              },
+              "width": 390,
+              "height": 420
+            },
+            {
+              "type": "rectangle",
+              "id": "q1f61M",
+              "x": 0,
+              "y": 160,
+              "name": "Hero Gradient Overlay",
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 0,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#FAF7F200",
+                    "position": 0
+                  },
+                  {
+                    "color": "#3C2415E6",
+                    "position": 1
+                  }
+                ]
+              },
+              "width": 390,
+              "height": 260
+            },
+            {
+              "type": "frame",
+              "id": "x9qXC",
+              "x": 24,
+              "y": 240,
+              "name": "Hero Content",
+              "width": 342,
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "K419j",
+                  "name": "Hero Title",
+                  "fill": "$white",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Premium Handmade Cookies",
+                  "lineHeight": 1.2,
+                  "fontFamily": "$font-heading",
+                  "fontSize": 28,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "Zc0sq",
+                  "name": "Hero Subtitle",
+                  "fill": "$gold-light",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Handcrafted with love for every celebration",
+                  "lineHeight": 1.5,
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "XIptE",
+                  "name": "Shop Now Button",
+                  "fill": "$lucky-red",
+                  "cornerRadius": "$radius-full",
+                  "gap": 6,
+                  "padding": [
+                    12,
+                    28
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "uBN42",
+                      "name": "Shop Now Text",
+                      "fill": "$white",
+                      "content": "Shop Now",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "OmfzN",
+                      "name": "Arrow Right",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "$white"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ellipse",
+              "id": "wADST",
+              "x": 320,
+              "y": 80,
+              "name": "Deco Dot 1",
+              "fill": "$champagne-gold",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "type": "ellipse",
+              "id": "ZryrR",
+              "x": 340,
+              "y": 100,
+              "name": "Deco Dot 2",
+              "fill": "$champagne-gold",
+              "width": 4,
+              "height": 4
+            },
+            {
+              "type": "ellipse",
+              "id": "LBkd4",
+              "x": 60,
+              "y": 60,
+              "name": "Deco Dot 3",
+              "fill": "$lucky-red",
+              "width": 6,
+              "height": 6
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "P3hCe",
+          "name": "Popular Categories Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            24,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Pc58i",
+              "name": "Section Title Categories",
+              "fill": "$deep-brown",
+              "content": "Popular Categories",
+              "fontFamily": "$font-heading",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "D32rVJ",
+              "name": "Categories Row",
+              "width": "fill_container",
+              "gap": 14,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "D7bWc",
+                  "name": "CNY Cookies",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "lJpjT",
+                      "name": "CNY Cookies Icon BG",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "mrtiger",
+                        "link": "https://unsplash.com/@mrtiger",
+                        "author": "光术 山影"
+                      },
+                      "clip": true,
+                      "width": 64,
+                      "height": 64,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1783070024671.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": "$radius-full",
+                      "justifyContent": "center",
+                      "alignItems": "center"
+                    },
+                    {
+                      "type": "text",
+                      "id": "c8dtGw",
+                      "name": "CNY Cookies Label",
+                      "fill": "$deep-brown",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "CNY Cookies",
+                      "textAlign": "center",
+                      "fontFamily": "$font-body",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IJY8R",
+                  "name": "Cookie Box",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ECQNH",
+                      "name": "Cookie Box Icon BG",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "manivask",
+                        "link": "https://unsplash.com/@manivask",
+                        "author": "Manivasagam Karunakaran"
+                      },
+                      "clip": true,
+                      "width": 64,
+                      "height": 64,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../../../Downloads/Downloads/gift%20box%204.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": "$radius-full",
+                      "justifyContent": "center",
+                      "alignItems": "center"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FAbHP",
+                      "name": "Cookie Box Label",
+                      "fill": "$deep-brown",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Gift Box",
+                      "textAlign": "center",
+                      "fontFamily": "$font-body",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "f1T5ph",
+                  "name": "Almond",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UESR8",
+                      "name": "Almond Icon BG",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "tamanna_rumee",
+                        "link": "https://unsplash.com/@tamanna_rumee",
+                        "author": "Tamanna Rumee"
+                      },
+                      "clip": true,
+                      "width": 64,
+                      "height": 64,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "./images/generated-1783070025621.png",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": "$radius-full",
+                      "justifyContent": "center",
+                      "alignItems": "center"
+                    },
+                    {
+                      "type": "text",
+                      "id": "mpJ7l",
+                      "name": "Almond Label",
+                      "fill": "$deep-brown",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Cashnut & Nuts",
+                      "textAlign": "center",
+                      "fontFamily": "$font-body",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LSotP",
+                  "name": "Festive",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "wJO8C",
+                      "name": "Festive Icon BG",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "bayusyaits",
+                        "link": "https://unsplash.com/@bayusyaits",
+                        "author": "Bayu Syaits"
+                      },
+                      "clip": true,
+                      "width": 64,
+                      "height": 64,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1771886587700-2096f5edef4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODMwNjg5OTZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      },
+                      "cornerRadius": "$radius-full",
+                      "justifyContent": "center",
+                      "alignItems": "center"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Oy9Vl",
+                      "name": "Festive Label",
+                      "fill": "$deep-brown",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Daily Deals",
+                      "textAlign": "center",
+                      "fontFamily": "$font-body",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "uGyBE",
+          "name": "Best Sellers Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            28,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "Eqx2P",
+              "name": "Section Title Best Sellers",
+              "fill": "$deep-brown",
+              "content": "Best Sellers",
+              "fontFamily": "$font-heading",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "ZRBVA",
+              "name": "Product Row 1",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zIr48",
+                  "name": "Pineapple Tart Card",
+                  "width": "fill_container",
+                  "fill": "$white",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#3C24150A",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 12
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "VBcaO",
+                      "name": "Pineapple Tart Image",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 120,
+                      "cornerRadius": "$radius-lg",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "itfDJ",
+                          "name": "Pineapple Tart Img Rect",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "phototastyfood",
+                            "link": "https://unsplash.com/@phototastyfood",
+                            "author": "David Foodphototasty"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "黄梨球.png",
+                            "mode": "fill"
+                          },
+                          "width": "fill_container",
+                          "height": "fill_container"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "e733f",
+                      "name": "Pineapple Tart Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": [
+                        10,
+                        10,
+                        12,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bM0Wa",
+                          "name": "Pineapple Tart Name",
+                          "fill": "$deep-brown",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Pineapple Tart",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "x0G4eL",
+                          "name": "Pineapple Tart Price Row",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "k2srCv",
+                              "name": "Pineapple Tart Price",
+                              "fill": "$lucky-red",
+                              "content": "RM 19.80",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "VxDRZ",
+                              "name": "Pineapple Tart Stars",
+                              "gap": 2,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "BdR8S",
+                                  "name": "Pineapple Tart Rating",
+                                  "fill": "$soft-brown",
+                                  "content": "4.9",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 10,
+                                  "fontWeight": "500"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "xSR6w",
+                                  "name": "Pineapple Tart Star",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "XMdFe",
+                          "name": "Pineapple Tart Add Btn",
+                          "width": "fill_container",
+                          "height": 32,
+                          "fill": "$champagne-gold",
+                          "cornerRadius": "$radius-sm",
+                          "padding": [
+                            0,
+                            10
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "GFwX9",
+                              "name": "Pineapple Tart Add Text",
+                              "fill": "$white",
+                              "content": "Add to Cart",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gkqag",
+                  "name": "Almond Crisps Card",
+                  "width": "fill_container",
+                  "fill": "$white",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#3C24150A",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 12
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "w1lJ2",
+                      "name": "Almond Crisps Image",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 120,
+                      "fill": "#d9d9d9ff",
+                      "cornerRadius": "$radius-lg",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "uPCFD",
+                          "name": "Almond Crisps Img Rect",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "rickysinghy",
+                            "link": "https://unsplash.com/@rickysinghy",
+                            "author": "Ricky Singh"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "../../../../Downloads/Downloads/%E6%9D%8F%E4%BB%81%E9%A5%BC.png",
+                            "mode": "fill"
+                          },
+                          "width": "fill_container",
+                          "height": "fill_container"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ad7Yj",
+                      "name": "Almond Crisps Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": [
+                        10,
+                        10,
+                        12,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "p4yQIz",
+                          "name": "Almond Crisps Name",
+                          "fill": "$deep-brown",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Almond Cookies",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "FYOKb",
+                          "name": "Almond Crisps Price Row",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "fQEVq",
+                              "name": "Almond Crisps Price",
+                              "fill": "$lucky-red",
+                              "content": "RM 19.80",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "cggk3",
+                              "name": "Almond Crisps Stars",
+                              "gap": 2,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "z2GPN",
+                                  "name": "Almond Crisps Rating",
+                                  "fill": "$soft-brown",
+                                  "content": "4.8",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 10,
+                                  "fontWeight": "500"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "yPqzy",
+                                  "name": "Almond Crisps Star",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "t5tCFJ",
+                          "name": "Almond Crisps Add Btn",
+                          "width": "fill_container",
+                          "height": 32,
+                          "fill": "$champagne-gold",
+                          "cornerRadius": "$radius-sm",
+                          "padding": [
+                            0,
+                            10
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ZDzdu",
+                              "name": "Almond Crisps Add Text",
+                              "fill": "$white",
+                              "content": "Add to Cart",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qXvMU",
+              "name": "Product Row 2",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "XDwcD",
+                  "name": "Chocolate Crinkles Card",
+                  "width": "fill_container",
+                  "fill": "$white",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#3C24150A",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 12
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "p5r7k",
+                      "name": "Chocolate Crinkles Image",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 120,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "mode": "fill"
+                      },
+                      "cornerRadius": "$radius-lg",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "Me4le",
+                          "name": "Chocolate Crinkles Img Rect",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "rolig_basseng",
+                            "link": "https://unsplash.com/@rolig_basseng",
+                            "author": "Daria"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "../../../../Downloads/Downloads/%E5%B7%A7%E5%85%8B%E5%8A%9B%E9%A5%BC.png",
+                            "mode": "fill"
+                          },
+                          "width": "fill_container",
+                          "height": "fill_container"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "y6c7Z",
+                      "name": "Chocolate Crinkles Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": [
+                        10,
+                        10,
+                        12,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "wqvdA",
+                          "name": "Chocolate Crinkles Name",
+                          "fill": "$deep-brown",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Chocolate Cookies",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "JCPvx",
+                          "name": "Chocolate Crinkles Price Row",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "DdTWx",
+                              "name": "Chocolate Crinkles Price",
+                              "fill": "$lucky-red",
+                              "content": "RM 19.80",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "y9fVI",
+                              "name": "Chocolate Crinkles Stars",
+                              "gap": 2,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "cHrV6",
+                                  "name": "Chocolate Crinkles Rating",
+                                  "fill": "$soft-brown",
+                                  "content": "4.9",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 10,
+                                  "fontWeight": "500"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "MpNUw",
+                                  "name": "Chocolate Crinkles Star",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "teuOf",
+                          "name": "Chocolate Crinkles Add Btn",
+                          "width": "fill_container",
+                          "height": 32,
+                          "fill": "$champagne-gold",
+                          "cornerRadius": "$radius-sm",
+                          "padding": [
+                            0,
+                            10
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "cQWPd",
+                              "name": "Chocolate Crinkles Add Text",
+                              "fill": "$white",
+                              "content": "Add to Cart",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mwOxn",
+                  "name": "Butter Cookies Card",
+                  "width": "fill_container",
+                  "fill": "$white",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#3C24150A",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 12
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "W3m5n",
+                      "name": "Butter Cookies Image",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 120,
+                      "cornerRadius": "$radius-lg",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "xK5P7",
+                          "name": "Butter Cookies Img Rect",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "camila_mof",
+                            "link": "https://unsplash.com/@camila_mof",
+                            "author": "Camila Mofsovich"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "../../../../Downloads/Downloads/%E4%B8%87%E5%90%89%E9%A5%BC.png",
+                            "mode": "fill"
+                          },
+                          "width": "fill_container",
+                          "height": "fill_container"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rFZca",
+                      "name": "Butter Cookies Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": [
+                        10,
+                        10,
+                        12,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "MKBmN",
+                          "name": "Butter Cookies Name",
+                          "fill": "$deep-brown",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Kuih Bangkit Cookies",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "dWsZF",
+                          "name": "Butter Cookies Price Row",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "cXs2k",
+                              "name": "Butter Cookies Price",
+                              "fill": "$lucky-red",
+                              "content": "RM 19.80",
+                              "fontFamily": "$font-body",
+                              "fontSize": 14,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "BQANf",
+                              "name": "Butter Cookies Stars",
+                              "gap": 2,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "CNjrg",
+                                  "name": "Butter Cookies Rating",
+                                  "fill": "$soft-brown",
+                                  "content": "4.7",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 10,
+                                  "fontWeight": "500"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "iJA9q",
+                                  "name": "Butter Cookies Star",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "c8mr8",
+                          "name": "Butter Cookies Add Btn",
+                          "width": "fill_container",
+                          "height": 32,
+                          "fill": "$champagne-gold",
+                          "cornerRadius": "$radius-sm",
+                          "padding": [
+                            0,
+                            10
+                          ],
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "xG47R",
+                              "name": "Butter Cookies Add Text",
+                              "fill": "$white",
+                              "content": "Add to Cart",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Z7tYA",
+          "name": "Gift Box Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            28,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "FTeLI",
+              "name": "Gift Title Row",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "YF5lw",
+                  "name": "Section Title Gift",
+                  "fill": "$deep-brown",
+                  "content": "Gift Box Collection",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "n8Bvdd",
+                  "name": "View All",
+                  "gap": 4,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "PkNl6",
+                      "name": "View All Text",
+                      "fill": "$champagne-gold",
+                      "content": "View All",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "H6vyFS",
+                      "name": "View All Arrow",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "chevron-right",
+                      "library": "lucide",
+                      "fill": "$champagne-gold"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lt8zR",
+              "name": "Gift Cards Row",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "mnnQ5",
+                  "name": "Spring Festival Set Card",
+                  "width": "fill_container",
+                  "fill": "$white",
+                  "cornerRadius": "$radius-lg",
+                  "stroke": "$champagne-gold",
+                  "strokeWidth": 1,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#3C24150A",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 12
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "G0wNpl",
+                      "name": "Spring Festival Set Image Frame",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 130,
+                      "cornerRadius": [
+                        16,
+                        16,
+                        0,
+                        0
+                      ],
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "ece0z",
+                          "name": "Spring Festival Set Img Rect",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "raheemblacksnows",
+                            "link": "https://unsplash.com/@raheemblacksnows",
+                            "author": "Abdul Raheem Kannath"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "../../../../Downloads/Downloads/gift%20box%201.png",
+                            "mode": "fill"
+                          },
+                          "width": "fill_container",
+                          "height": "fill_container"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sOpt9",
+                      "name": "Spring Festival Set Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": [
+                        12,
+                        12,
+                        14,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "B8oCge",
+                          "name": "Spring Festival Set Ribbon",
+                          "width": 40,
+                          "height": 3,
+                          "fill": "$champagne-gold",
+                          "cornerRadius": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "b7JGQ",
+                          "name": "Spring Festival Set Gift Name",
+                          "fill": "$deep-brown",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Spring Festival Set",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "WGhtJ",
+                          "name": "Spring Festival Set Gift Desc",
+                          "fill": "$soft-brown",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "8 assorted cookies in premium gift box",
+                          "lineHeight": 1.4,
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "BbH9R",
+                          "name": "Spring Festival Set Gift Price",
+                          "fill": "$lucky-red",
+                          "content": "RM 38.00",
+                          "fontFamily": "$font-body",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SjLVd",
+                  "name": "Deluxe Gift Hamper Card",
+                  "width": "fill_container",
+                  "fill": "$white",
+                  "cornerRadius": "$radius-lg",
+                  "stroke": "$champagne-gold",
+                  "strokeWidth": 1,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#3C24150A",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 12
+                  },
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GdAuR",
+                      "name": "Deluxe Gift Hamper Image Frame",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 130,
+                      "cornerRadius": [
+                        16,
+                        16,
+                        0,
+                        0
+                      ],
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "x97ds",
+                          "name": "Deluxe Gift Hamper Img Rect",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "sheri_silver",
+                            "link": "https://unsplash.com/@sheri_silver",
+                            "author": "sheri silver"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "../../../../Downloads/Downloads/gift%20box%205.png",
+                            "mode": "fill"
+                          },
+                          "width": "fill_container",
+                          "height": "fill_container"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "XIsER",
+                      "name": "Deluxe Gift Hamper Info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": [
+                        12,
+                        12,
+                        14,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "N02Mp",
+                          "name": "Deluxe Gift Hamper Ribbon",
+                          "width": 40,
+                          "height": 3,
+                          "fill": "$champagne-gold",
+                          "cornerRadius": 2
+                        },
+                        {
+                          "type": "text",
+                          "id": "ID5g9",
+                          "name": "Deluxe Gift Hamper Gift Name",
+                          "fill": "$deep-brown",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Deluxe Gift Hamper",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "guTbd",
+                          "name": "Deluxe Gift Hamper Gift Desc",
+                          "fill": "$soft-brown",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "12 premium cookies + tea set",
+                          "lineHeight": 1.4,
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ILLq5",
+                          "name": "Deluxe Gift Hamper Gift Price",
+                          "fill": "$lucky-red",
+                          "content": "RM 68.80",
+                          "fontFamily": "$font-body",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "x2Cp3P",
+          "name": "Reviews Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            28,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "ywl4z",
+              "name": "Section Title Reviews",
+              "fill": "$deep-brown",
+              "content": "Customer Reviews",
+              "fontFamily": "$font-heading",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "Z5CLR6",
+              "name": "Reviews Row",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AZLdu",
+                  "name": "Mei Ling Review",
+                  "width": 260,
+                  "fill": "$white",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#3C24150A",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 10
+                  },
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "wRerx",
+                      "name": "Mei Ling Header",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "sAEHh",
+                          "name": "Mei Ling Avatar",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "panitan",
+                            "link": "https://unsplash.com/@panitan",
+                            "author": "panitan punpuang"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1600481176431-47ad2ab2745d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODI5ODUyNjl8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": 36,
+                          "height": 36
+                        },
+                        {
+                          "type": "frame",
+                          "id": "hOYIu",
+                          "name": "Mei Ling Name Col",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "zPZWL",
+                              "name": "Mei Ling Name Text",
+                              "fill": "$deep-brown",
+                              "content": "Mei Ling",
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "H82O6",
+                              "name": "Mei Ling Star Row",
+                              "gap": 2,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "JmdzE",
+                                  "name": "Mei Ling Star 0",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "LTmfD",
+                                  "name": "Mei Ling Star 1",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "LXAKj",
+                                  "name": "Mei Ling Star 2",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "oz5PU",
+                                  "name": "Mei Ling Star 3",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "NSyzf",
+                                  "name": "Mei Ling Star 4",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "GeCRW",
+                      "name": "Mei Ling Text",
+                      "fill": "$soft-brown",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "\"The pineapple tarts are absolutely divine! Perfect for CNY gifting. Will order again!\"",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LNADL",
+                  "name": "Sarah Tan Review",
+                  "width": 260,
+                  "fill": "$white",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#3C24150A",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 10
+                  },
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "JBxPv",
+                      "name": "Sarah Tan Header",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "E1EfZx",
+                          "name": "Sarah Tan Avatar",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "jsycra",
+                            "link": "https://unsplash.com/@jsycra",
+                            "author": "Siyuan"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1576576245194-8590304ae967?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODI5ODUyNjl8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": 36,
+                          "height": 36
+                        },
+                        {
+                          "type": "frame",
+                          "id": "OOFHs",
+                          "name": "Sarah Tan Name Col",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "pY5q6",
+                              "name": "Sarah Tan Name Text",
+                              "fill": "$deep-brown",
+                              "content": "Sarah Tan",
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Z3tIe",
+                              "name": "Sarah Tan Star Row",
+                              "gap": 2,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "au52L",
+                                  "name": "Sarah Tan Star 0",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "XKuo4",
+                                  "name": "Sarah Tan Star 1",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "Dkk5n",
+                                  "name": "Sarah Tan Star 2",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "r2eKpK",
+                                  "name": "Sarah Tan Star 3",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "FHuRE",
+                                  "name": "Sarah Tan Star 4",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "K1geR5",
+                      "name": "Sarah Tan Text",
+                      "fill": "$soft-brown",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "\"Beautiful packaging and the cookies taste homemade. My family loved the gift box!\"",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "PO2RR",
+                  "name": "Amira Hassan Review",
+                  "width": 260,
+                  "fill": "$white",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#3C24150A",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 10
+                  },
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "uRvqr",
+                      "name": "Amira Hassan Header",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "vjpfJ",
+                          "name": "Amira Hassan Avatar",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "branislavrodman",
+                            "link": "https://unsplash.com/@branislavrodman",
+                            "author": "Branislav Rodman"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1758369636875-60b3dcb76366?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODI5ODUyNzB8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": 36,
+                          "height": 36
+                        },
+                        {
+                          "type": "frame",
+                          "id": "LqqVQ",
+                          "name": "Amira Hassan Name Col",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "enIhh",
+                              "name": "Amira Hassan Name Text",
+                              "fill": "$deep-brown",
+                              "content": "Amira Hassan",
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "D70XQl",
+                              "name": "Amira Hassan Star Row",
+                              "gap": 2,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "sPYYT",
+                                  "name": "Amira Hassan Star 0",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "J8xoq",
+                                  "name": "Amira Hassan Star 1",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "YkxtF",
+                                  "name": "Amira Hassan Star 2",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "oiWBG",
+                                  "name": "Amira Hassan Star 3",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "Mh8GD",
+                                  "name": "Amira Hassan Star 4",
+                                  "width": 10,
+                                  "height": 10,
+                                  "icon": "star",
+                                  "library": "lucide",
+                                  "fill": "$star-yellow"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "KYiAj",
+                      "name": "Amira Hassan Text",
+                      "fill": "$soft-brown",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "\"Best almond cookies I've ever had. The delivery was fast and the box was gorgeous.\"",
+                      "lineHeight": 1.5,
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n8dphS",
+          "name": "Bottom Nav",
+          "width": 390,
+          "height": 80,
+          "fill": "$white",
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#3C241508",
+            "offset": {
+              "x": 0,
+              "y": -2
+            },
+            "blur": 8
+          },
+          "padding": [
+            12,
+            0,
+            20,
+            0
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "j9g9o",
+              "name": "Nav Home",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "awueI",
+                  "name": "Nav Home Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "house",
+                  "library": "lucide",
+                  "fill": "$champagne-gold"
+                },
+                {
+                  "type": "text",
+                  "id": "e7lvR5",
+                  "name": "Nav Home Label",
+                  "fill": "$champagne-gold",
+                  "content": "Home",
+                  "fontFamily": "$font-body",
+                  "fontSize": 10,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "cdaMw",
+              "name": "Nav Products",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "nisOe",
+                  "name": "Nav Products Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "layout-grid",
+                  "library": "lucide",
+                  "fill": "$soft-brown"
+                },
+                {
+                  "type": "text",
+                  "id": "W60yWt",
+                  "name": "Nav Products Label",
+                  "fill": "$soft-brown",
+                  "content": "Products",
+                  "fontFamily": "$font-body",
+                  "fontSize": 10,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "zQkh1",
+              "name": "Nav Gift Box",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "vurT5",
+                  "name": "Nav Gift Box Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "gift",
+                  "library": "lucide",
+                  "fill": "$soft-brown"
+                },
+                {
+                  "type": "text",
+                  "id": "GLIFi",
+                  "name": "Nav Gift Box Label",
+                  "fill": "$soft-brown",
+                  "content": "Gift Box",
+                  "fontFamily": "$font-body",
+                  "fontSize": 10,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "S3cZlS",
+              "name": "Nav Cart",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "U7HcHt",
+                  "name": "Nav Cart Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "shopping-bag",
+                  "library": "lucide",
+                  "fill": "$soft-brown"
+                },
+                {
+                  "type": "text",
+                  "id": "E8c9IM",
+                  "name": "Nav Cart Label",
+                  "fill": "$soft-brown",
+                  "content": "Cart",
+                  "fontFamily": "$font-body",
+                  "fontSize": 10,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dzE2K",
+              "name": "Nav Profile",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "J1SXWY",
+                  "name": "Nav Profile Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "user",
+                  "library": "lucide",
+                  "fill": "$soft-brown"
+                },
+                {
+                  "type": "text",
+                  "id": "VRSp3",
+                  "name": "Nav Profile Label",
+                  "fill": "$soft-brown",
+                  "content": "Profile",
+                  "fontFamily": "$font-body",
+                  "fontSize": 10,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HuDIB",
+              "layoutPosition": "absolute",
+              "x": 19,
+              "y": 8,
+              "name": "Nav Indicator",
+              "width": 40,
+              "height": 3,
+              "fill": "$champagne-gold",
+              "cornerRadius": 2
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "themes": {
+    "Mode": [
+      "Light",
+      "Dark"
+    ],
+    "Base": [
+      "Neutral",
+      "Gray",
+      "Stone",
+      "Zinc",
+      "Slate"
+    ],
+    "Accent": [
+      "Default",
+      "Red",
+      "Rose",
+      "Orange",
+      "Green",
+      "Blue",
+      "Yellow",
+      "Violet"
+    ]
+  },
+  "variables": {
+    "--sidebar": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#fafafa"
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#09090b"
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#18181b"
+        },
+        {
+          "value": "#1447e6",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-primary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#fafafa"
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#e4e4e7"
+        },
+        {
+          "value": "#ffffff1a",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-accent": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#f4f4f4"
+        },
+        {
+          "value": "#2a2a30",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-accent-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#18181b"
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--sidebar-ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#71717a"
+        },
+        {
+          "value": "#71717a",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--background": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#fafafa"
+        },
+        {
+          "value": "#0a0a0a",
+          "theme": {
+            "Mode": "Dark"
+          }
+        },
+        {
+          "value": "#030712",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#020617",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#0c0a09",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#09090b",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Zinc"
+          }
+        }
+      ]
+    },
+    "--foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0a0a0a"
+        },
+        {
+          "value": "#030712",
+          "theme": {
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#020617",
+          "theme": {
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#0c0a09",
+          "theme": {
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#09090b",
+          "theme": {
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--card": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#fafafa"
+        },
+        {
+          "value": "#171717",
+          "theme": {
+            "Mode": "Dark"
+          }
+        },
+        {
+          "value": "#111827",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#0f172a",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#1c1917",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Zinc"
+          }
+        }
+      ]
+    },
+    "--card-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0a0a0a"
+        },
+        {
+          "value": "#030712",
+          "theme": {
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#020617",
+          "theme": {
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#0c0a09",
+          "theme": {
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#09090b",
+          "theme": {
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--popover": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#fafafa"
+        },
+        {
+          "value": "#171717",
+          "theme": {
+            "Mode": "Dark"
+          }
+        },
+        {
+          "value": "#111827",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#0f172a",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#1c1917",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Zinc"
+          }
+        }
+      ]
+    },
+    "--popover-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#0a0a0a"
+        },
+        {
+          "value": "#030712",
+          "theme": {
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#020617",
+          "theme": {
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#0c0a09",
+          "theme": {
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#09090b",
+          "theme": {
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--primary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#171717"
+        },
+        {
+          "value": "#111827",
+          "theme": {
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#0f172a",
+          "theme": {
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#1c1917",
+          "theme": {
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#e5e5e5",
+          "theme": {
+            "Mode": "Dark"
+          }
+        },
+        {
+          "value": "#e5e7eb",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#e2e8f0",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#e5e5e5",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#e4e4e7",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#dc2626",
+          "theme": {
+            "Accent": "Red"
+          }
+        },
+        {
+          "value": "#e11d48",
+          "theme": {
+            "Accent": "Rose"
+          }
+        },
+        {
+          "value": "#ea580c",
+          "theme": {
+            "Accent": "Orange"
+          }
+        },
+        {
+          "value": "#65a30d",
+          "theme": {
+            "Accent": "Green"
+          }
+        },
+        {
+          "value": "#1d4ed8",
+          "theme": {
+            "Accent": "Blue"
+          }
+        },
+        {
+          "value": "#facc15",
+          "theme": {
+            "Accent": "Yellow"
+          }
+        },
+        {
+          "value": "#7c3aed",
+          "theme": {
+            "Accent": "Violet"
+          }
+        },
+        {
+          "value": "#ef4444",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Red"
+          }
+        },
+        {
+          "value": "#f43f5e",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Rose"
+          }
+        },
+        {
+          "value": "#f97316",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Orange"
+          }
+        },
+        {
+          "value": "#65a30d",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Green"
+          }
+        },
+        {
+          "value": "#1d4ed8",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Blue"
+          }
+        },
+        {
+          "value": "#eab308",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Yellow"
+          }
+        },
+        {
+          "value": "#8b5cf6",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Violet"
+          }
+        }
+      ]
+    },
+    "--primary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#fafafa"
+        },
+        {
+          "value": "#171717",
+          "theme": {
+            "Mode": "Dark"
+          }
+        },
+        {
+          "value": "#111827",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#0f172a",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#1c1917",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#fef2f2",
+          "theme": {
+            "Accent": "Red"
+          }
+        },
+        {
+          "value": "#fff1f2",
+          "theme": {
+            "Accent": "Rose"
+          }
+        },
+        {
+          "value": "#fff7ed",
+          "theme": {
+            "Accent": "Orange"
+          }
+        },
+        {
+          "value": "#f7fee7",
+          "theme": {
+            "Accent": "Green"
+          }
+        },
+        {
+          "value": "#eff6ff",
+          "theme": {
+            "Accent": "Blue"
+          }
+        },
+        {
+          "value": "#713f12",
+          "theme": {
+            "Accent": "Yellow"
+          }
+        },
+        {
+          "value": "#f5f3ff",
+          "theme": {
+            "Accent": "Violet"
+          }
+        }
+      ]
+    },
+    "--secondary": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#f5f5f5"
+        },
+        {
+          "value": "#262626",
+          "theme": {
+            "Mode": "Dark"
+          }
+        },
+        {
+          "value": "#1f2937",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#1e293b",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#292524",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#27272a",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Zinc"
+          }
+        }
+      ]
+    },
+    "--secondary-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#171717"
+        },
+        {
+          "value": "#111827",
+          "theme": {
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#0f172a",
+          "theme": {
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#1c1917",
+          "theme": {
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--muted": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#f5f5f5"
+        },
+        {
+          "value": "#262626",
+          "theme": {
+            "Mode": "Dark"
+          }
+        },
+        {
+          "value": "#1f2937",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#1e293b",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#292524",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#27272a",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Zinc"
+          }
+        }
+      ]
+    },
+    "--muted-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#737373"
+        },
+        {
+          "value": "#6b7280",
+          "theme": {
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#64748b",
+          "theme": {
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#78716c",
+          "theme": {
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#71717a",
+          "theme": {
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#a3a3a3",
+          "theme": {
+            "Mode": "Dark"
+          }
+        },
+        {
+          "value": "#9ca3af",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#94a3b8",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#a8a29e",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#a1a1aa",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Zinc"
+          }
+        }
+      ]
+    },
+    "--accent": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#f5f5f5"
+        },
+        {
+          "value": "#262626",
+          "theme": {
+            "Mode": "Dark"
+          }
+        },
+        {
+          "value": "#1f2937",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#1e293b",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#292524",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#27272a",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Zinc"
+          }
+        }
+      ]
+    },
+    "--accent-foreground": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#171717"
+        },
+        {
+          "value": "#111827",
+          "theme": {
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#0f172a",
+          "theme": {
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#1c1917",
+          "theme": {
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#18181b",
+          "theme": {
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#fafafa",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--destructive": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#e7000b"
+        },
+        {
+          "value": "#ff666999",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--border": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#e5e5e5"
+        },
+        {
+          "value": "#e5e7eb",
+          "theme": {
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#e2e8f0",
+          "theme": {
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#e5e5e5",
+          "theme": {
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#e4e4e7",
+          "theme": {
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#ffffff1a",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--input": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#e5e5e5"
+        },
+        {
+          "value": "#e5e7eb",
+          "theme": {
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#e2e8f0",
+          "theme": {
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#e5e5e5",
+          "theme": {
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#e4e4e7",
+          "theme": {
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#ffffff1a",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
+    },
+    "--ring": {
+      "type": "color",
+      "value": [
+        {
+          "value": "#a3a3a3"
+        },
+        {
+          "value": "#9ca3af",
+          "theme": {
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#94a3b8",
+          "theme": {
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#a8a29e",
+          "theme": {
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#a1a1aa",
+          "theme": {
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#737373",
+          "theme": {
+            "Mode": "Dark"
+          }
+        },
+        {
+          "value": "#6b7280",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Gray"
+          }
+        },
+        {
+          "value": "#64748b",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Slate"
+          }
+        },
+        {
+          "value": "#78716c",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Stone"
+          }
+        },
+        {
+          "value": "#71717a",
+          "theme": {
+            "Mode": "Dark",
+            "Base": "Zinc"
+          }
+        },
+        {
+          "value": "#7f1d1d",
+          "theme": {
+            "Accent": "Red"
+          }
+        },
+        {
+          "value": "#fb7185",
+          "theme": {
+            "Accent": "Rose"
+          }
+        },
+        {
+          "value": "#fb923c",
+          "theme": {
+            "Accent": "Orange"
+          }
+        },
+        {
+          "value": "#a3e635",
+          "theme": {
+            "Accent": "Green"
+          }
+        },
+        {
+          "value": "#3b82f6",
+          "theme": {
+            "Accent": "Blue"
+          }
+        },
+        {
+          "value": "#713f12",
+          "theme": {
+            "Accent": "Yellow"
+          }
+        },
+        {
+          "value": "#a78bfa",
+          "theme": {
+            "Accent": "Violet"
+          }
+        },
+        {
+          "value": "#dc2626",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Red"
+          }
+        },
+        {
+          "value": "#881337",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Rose"
+          }
+        },
+        {
+          "value": "#7c2d12",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Orange"
+          }
+        },
+        {
+          "value": "#365314",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Green"
+          }
+        },
+        {
+          "value": "#2563eb",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Blue"
+          }
+        },
+        {
+          "value": "#ca8a06",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Yellow"
+          }
+        },
+        {
+          "value": "#4c1d95",
+          "theme": {
+            "Mode": "Dark",
+            "Accent": "Violet"
+          }
+        }
+      ]
+    },
+    "--white": {
+      "type": "color",
+      "value": "#ffffffff"
+    },
+    "--black": {
+      "type": "color",
+      "value": "#000000"
+    },
+    "cream-white": {
+      "type": "color",
+      "value": "#FAF7F2"
+    },
+    "warm-beige": {
+      "type": "color",
+      "value": "#F5EDE3"
+    },
+    "champagne-gold": {
+      "type": "color",
+      "value": "#C8A96E"
+    },
+    "lucky-red": {
+      "type": "color",
+      "value": "#C41E3A"
+    },
+    "deep-brown": {
+      "type": "color",
+      "value": "#3C2415"
+    },
+    "soft-brown": {
+      "type": "color",
+      "value": "#8B7355"
+    },
+    "white": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "gold-light": {
+      "type": "color",
+      "value": "#E8D5A3"
+    },
+    "red-dark": {
+      "type": "color",
+      "value": "#A01830"
+    },
+    "star-yellow": {
+      "type": "color",
+      "value": "#F5A623"
+    },
+    "spacing-xs": {
+      "type": "number",
+      "value": 4
+    },
+    "spacing-sm": {
+      "type": "number",
+      "value": 8
+    },
+    "spacing-md": {
+      "type": "number",
+      "value": 16
+    },
+    "spacing-lg": {
+      "type": "number",
+      "value": 20
+    },
+    "spacing-xl": {
+      "type": "number",
+      "value": 24
+    },
+    "spacing-2xl": {
+      "type": "number",
+      "value": 32
+    },
+    "font-heading": {
+      "type": "string",
+      "value": "Playfair Display"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "radius-sm": {
+      "type": "number",
+      "value": 8
+    },
+    "radius-md": {
+      "type": "number",
+      "value": 12
+    },
+    "radius-lg": {
+      "type": "number",
+      "value": 16
+    },
+    "radius-xl": {
+      "type": "number",
+      "value": 24
+    },
+    "radius-full": {
+      "type": "number",
+      "value": 100
+    }
+  },
+  "fileToken": "e67c492c-f53f-4652-9492-c3194a53dd4b"
+}

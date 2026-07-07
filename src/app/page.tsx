@@ -84,8 +84,8 @@ export default function HomePage() {
               href={cat.id === "gift" ? "/gift-box" : `/products?category=${cat.id}`}
               className="flex flex-1 flex-col items-center gap-2"
             >
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-beige text-2xl">
-                {cat.icon}
+              <span className="relative block h-16 w-16 overflow-hidden rounded-full bg-beige">
+                <Image src={cat.image} alt={cat.label} fill sizes="64px" className="object-cover" />
               </span>
               <span className="text-center text-[11px] font-medium text-brown">{cat.label}</span>
             </Link>

@@ -165,10 +165,15 @@ export const giftSets: GiftSet[] = [
 ];
 
 export const categories = [
-  { id: "cny", label: "CNY Cookies", icon: "🥮" },
-  { id: "gift", label: "Gift Box", icon: "🎁" },
-  { id: "nuts", label: "Cashnut & Nuts", icon: "🥜" },
-  { id: "deals", label: "Daily Deals", icon: "🔥" },
+  { id: "cny", label: "CNY Cookies", image: "/images/category-cny.png" },
+  { id: "gift", label: "Gift Box", image: "/images/gift-box-4.png" },
+  { id: "nuts", label: "Cashnut & Nuts", image: "/images/category-nuts.png" },
+  {
+    id: "deals",
+    label: "Daily Deals",
+    image:
+      "https://images.unsplash.com/photo-1771886587700-2096f5edef4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+  },
 ] as const;
 
 export function getProduct(id: string) {

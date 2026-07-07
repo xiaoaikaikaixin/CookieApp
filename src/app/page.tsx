@@ -47,15 +47,19 @@ export default function HomePage() {
         </div>
       </header>
 
-      <div className="relative h-[280px] w-full overflow-hidden">
+      <div className="relative h-[420px] w-full overflow-hidden">
         <Image
-          src="/images/chocolate-cookies.png"
+          src="/images/hero-cookies.png"
           alt="Premium handmade cookies"
           fill
           sizes="480px"
           className="object-cover"
+          priority
         />
-        <div className="hero-gradient absolute inset-0 flex flex-col justify-end gap-2 p-6">
+        <span className="absolute right-[30px] top-10 h-2 w-2 rounded-full bg-gold" />
+        <span className="absolute right-[10px] top-[60px] h-1 w-1 rounded-full bg-gold" />
+        <span className="absolute left-[30px] top-10 h-1.5 w-1.5 rounded-full bg-red" />
+        <div className="hero-gradient absolute inset-0 flex flex-col justify-end gap-3 p-6">
           <h2 className="font-heading text-[28px] font-bold leading-tight text-white">
             Premium Handmade Cookies
           </h2>
@@ -64,9 +68,9 @@ export default function HomePage() {
           </p>
           <Link
             href="/products"
-            className="mt-2 w-fit rounded-full bg-red px-5 py-2.5 text-[14px] font-semibold text-white"
+            className="mt-2 flex w-fit items-center gap-1.5 rounded-full bg-red px-7 py-3 text-[14px] font-semibold text-white"
           >
-            Shop Now
+            Shop Now <span aria-hidden>→</span>
           </Link>
         </div>
       </div>

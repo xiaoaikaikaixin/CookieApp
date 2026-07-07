@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import BackHeader from "@/components/BackHeader";
 import { useCart, formatSGD } from "@/lib/cart-context";
+import { giftSets } from "@/lib/products";
 
 const DAY_LABELS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
@@ -29,16 +30,43 @@ export default function CheckoutPage() {
   const deliveryDays = useMemo(buildDeliveryDays, []);
   const [selectedDate, setSelectedDate] = useState(deliveryDays[1]?.key ?? deliveryDays[0].key);
   const selected = deliveryDays.find((d) => d.key === selectedDate)!;
+  const [placing, setPlacing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const giftSetIds = useMemo(() => new Set(giftSets.map((g) => g.id)), []);
 
-  const placeOrder = () => {
-    const orderId = `LC${Date.now().toString().slice(-8)}`;
-    const params = new URLSearchParams({
-      orderId,
-      total: total.toFixed(2),
-      date: selected.full,
-    });
-    clear();
-    router.push(`/order/confirmation?${params.toString()}`);
+  const placeOrder = async () => {
+    setPlacing(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: items.map((i) => ({
+            id: i.id,
+            qty: i.qty,
+            isGiftSet: giftSetIds.has(i.id),
+          })),
+          deliveryDate: selected.key,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "Could not place order. Please try again.");
+        return;
+      }
+      const params = new URLSearchParams({
+        orderId: data.order.order_number,
+        total: String(data.order.total),
+        date: selected.full,
+      });
+      clear();
+      router.push(`/order/confirmation?${params.toString()}`);
+    } catch {
+      setError("Network error — please try again.");
+    } finally {
+      setPlacing(false);
+    }
   };
 
   return (
@@ -127,12 +155,13 @@ export default function CheckoutPage() {
       </div>
 
       <div className="sticky bottom-0 mt-auto border-t border-beige bg-white px-5 pb-7 pt-4 shadow-[0_-2px_8px_rgba(60,36,21,0.03)]">
+        {error && <p className="mb-2.5 text-[12px] font-medium text-red">{error}</p>}
         <button
           onClick={placeOrder}
-          disabled={items.length === 0}
+          disabled={items.length === 0 || placing}
           className="flex h-[50px] w-full items-center justify-center rounded-md bg-gold text-[15px] font-bold text-white transition hover:brightness-95 disabled:opacity-50"
         >
-          Place Order · {formatSGD(total)}
+          {placing ? "Placing Order…" : `Place Order · ${formatSGD(total)}`}
         </button>
       </div>
     </div>

@@ -9,6 +9,7 @@ function ConfirmationContent() {
   const orderId = searchParams.get("orderId") ?? "—";
   const total = searchParams.get("total") ?? "0.00";
   const date = searchParams.get("date") ?? "—";
+  const address = searchParams.get("address");
 
   return (
     <div className="flex min-h-screen flex-col items-center gap-5 px-8 pb-10 pt-16 text-center">
@@ -36,6 +37,15 @@ function ConfirmationContent() {
           <span className="text-soft-brown">Delivery Date</span>
           <span className="font-semibold text-brown">{date}</span>
         </div>
+        {address && (
+          <>
+            <div className="h-px w-full bg-beige" />
+            <div className="flex flex-col gap-1 text-left text-[13px]">
+              <span className="text-soft-brown">Delivery Address</span>
+              <span className="font-semibold text-brown">{address}</span>
+            </div>
+          </>
+        )}
       </div>
 
       <Link

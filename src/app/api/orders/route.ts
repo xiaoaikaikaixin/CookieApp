@@ -10,7 +10,7 @@ interface IncomingItem {
 }
 
 export async function POST(req: Request) {
-  let body: { items?: IncomingItem[]; deliveryDate?: string };
+  let body: { items?: IncomingItem[]; deliveryDate?: string; address?: string };
   try {
     body = await req.json();
   } catch {
@@ -77,6 +77,7 @@ export async function POST(req: Request) {
     p_delivery_fee: deliveryFee,
     p_total: total,
     p_delivery_date: body.deliveryDate ?? null,
+    p_delivery_address: body.address ?? null,
   });
 
   if (orderError) {

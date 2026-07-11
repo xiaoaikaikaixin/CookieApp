@@ -1,10 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import BackHeader from "@/components/BackHeader";
 import { useCart, formatSGD } from "@/lib/cart-context";
 import { giftSets } from "@/lib/products";
+import { ADDRESS_STORAGE_KEY, DEFAULT_ADDRESS } from "@/lib/address";
 
 const DAY_LABELS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
@@ -32,7 +34,13 @@ export default function CheckoutPage() {
   const selected = deliveryDays.find((d) => d.key === selectedDate)!;
   const [placing, setPlacing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [address, setAddress] = useState(DEFAULT_ADDRESS);
   const giftSetIds = useMemo(() => new Set(giftSets.map((g) => g.id)), []);
+
+  useEffect(() => {
+    const saved = window.localStorage.getItem(ADDRESS_STORAGE_KEY);
+    if (saved) setAddress(saved);
+  }, []);
 
   const placeOrder = async () => {
     setPlacing(true);
@@ -48,6 +56,7 @@ export default function CheckoutPage() {
             isGiftSet: giftSetIds.has(i.id),
           })),
           deliveryDate: selected.key,
+          address,
         }),
       });
       const data = await res.json();
@@ -59,6 +68,7 @@ export default function CheckoutPage() {
         orderId: data.order.order_number,
         total: String(data.order.total),
         date: selected.full,
+        address,
       });
       clear();
       router.push(`/order/confirmation?${params.toString()}`);
@@ -74,17 +84,6 @@ export default function CheckoutPage() {
       <BackHeader title="Checkout" />
 
       <div className="flex flex-col gap-4 px-5 py-5">
-        <div className="flex items-center gap-3 rounded-lg bg-white p-3.5 card-shadow">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-beige text-[16px]">📍</span>
-          <div className="flex flex-1 flex-col gap-0.5">
-            <span className="text-[12px] font-medium text-soft-brown">Delivery Address</span>
-            <span className="text-[13px] font-semibold text-brown">
-              123 Orchard Road, #04-12, Singapore 238841
-            </span>
-          </div>
-          <button className="text-[12px] font-semibold text-gold">Change</button>
-        </div>
-
         <div className="flex flex-col gap-3 rounded-lg bg-white p-3.5 card-shadow">
           <div className="flex items-center gap-3">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-beige text-[16px]">📅</span>
@@ -112,6 +111,17 @@ export default function CheckoutPage() {
               );
             })}
           </div>
+        </div>
+
+        <div className="flex items-center gap-3 rounded-lg bg-white p-3.5 card-shadow">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-beige text-[16px]">📍</span>
+          <div className="flex flex-1 flex-col gap-0.5">
+            <span className="text-[12px] font-medium text-soft-brown">Delivery Address</span>
+            <span className="text-[13px] font-semibold text-brown">{address}</span>
+          </div>
+          <Link href="/checkout/address" className="text-[12px] font-semibold text-gold">
+            Change
+          </Link>
         </div>
 
         <div className="flex items-center gap-3 rounded-lg bg-white p-3.5 card-shadow">

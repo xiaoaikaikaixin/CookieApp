@@ -117,6 +117,12 @@ export default async function TrackOrderPage({
             <span className="font-semibold text-brown">{order.delivery_date}</span>
           </div>
         )}
+        {order.delivery_address && (
+          <div className="flex flex-col gap-1 text-left text-[13px]">
+            <span className="text-soft-brown">Delivery Address</span>
+            <span className="font-semibold text-brown">{order.delivery_address}</span>
+          </div>
+        )}
       </div>
 
       <Link

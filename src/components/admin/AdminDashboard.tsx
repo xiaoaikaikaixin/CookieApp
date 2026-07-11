@@ -19,6 +19,7 @@ interface Order {
   delivery_fee: number;
   total: number;
   delivery_date: string | null;
+  delivery_address: string | null;
   status: string;
   created_at: string;
 }
@@ -114,6 +115,9 @@ export default function AdminDashboard({
                 Placed {new Date(order.created_at).toLocaleString("en-SG")}
                 {order.delivery_date && ` · Delivery ${order.delivery_date}`}
               </p>
+              {order.delivery_address && (
+                <p className="mt-1 text-[11px] text-soft-brown">📍 {order.delivery_address}</p>
+              )}
               <div className="mt-3 flex flex-col gap-1">
                 {order.items.map((item) => (
                   <div key={item.id} className="flex justify-between text-[13px] text-brown">

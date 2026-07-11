@@ -109,6 +109,4 @@ export function useCart() {
   return ctx;
 }
 
-export function formatSGD(amount: number) {
-  return `SG ${amount.toFixed(2)}`;
-}
+export { formatSGD } from "./format";

@@ -38,9 +38,12 @@ function ConfirmationContent() {
         </div>
       </div>
 
-      <button className="flex h-[50px] w-full items-center justify-center rounded-md bg-gold text-[15px] font-bold text-white transition hover:brightness-95">
+      <Link
+        href={`/order/track/${orderId}`}
+        className="flex h-[50px] w-full items-center justify-center rounded-md bg-gold text-[15px] font-bold text-white transition hover:brightness-95"
+      >
         Track Order
-      </button>
+      </Link>
       <Link href="/" className="text-[14px] font-semibold text-brown">
         Back to Home
       </Link>

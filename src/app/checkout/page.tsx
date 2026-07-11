@@ -4,34 +4,45 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import BackHeader from "@/components/BackHeader";
+import Calendar from "@/components/Calendar";
 import { useCart, formatSGD } from "@/lib/cart-context";
 import { giftSets } from "@/lib/products";
 import { ADDRESS_STORAGE_KEY, DEFAULT_ADDRESS } from "@/lib/address";
 
-const DAY_LABELS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+function startOfDay(d: Date) {
+  const copy = new Date(d);
+  copy.setHours(0, 0, 0, 0);
+  return copy;
+}
 
-function buildDeliveryDays() {
-  const days = [];
-  const today = new Date();
-  for (let i = 0; i < 6; i++) {
-    const d = new Date(today);
-    d.setDate(today.getDate() + i);
-    days.push({
-      key: d.toISOString().slice(0, 10),
-      dayLabel: DAY_LABELS[d.getDay()],
-      dateNum: String(d.getDate()).padStart(2, "0"),
-      full: d.toLocaleDateString("en-SG", { weekday: "short", day: "numeric", month: "short", year: "numeric" }),
-    });
-  }
-  return days;
+function tomorrow() {
+  const d = startOfDay(new Date());
+  d.setDate(d.getDate() + 1);
+  return d;
+}
+
+function toISODate(d: Date) {
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function formatDisplayDate(d: Date) {
+  return d.toLocaleDateString("en-SG", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
 }
 
 export default function CheckoutPage() {
   const router = useRouter();
   const { items, subtotal, deliveryFee, total, clear } = useCart();
-  const deliveryDays = useMemo(buildDeliveryDays, []);
-  const [selectedDate, setSelectedDate] = useState(deliveryDays[1]?.key ?? deliveryDays[0].key);
-  const selected = deliveryDays.find((d) => d.key === selectedDate)!;
+  const [selectedDate, setSelectedDate] = useState(tomorrow);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const minDate = useMemo(() => startOfDay(new Date()), []);
+  const maxDate = useMemo(() => {
+    const d = startOfDay(new Date());
+    d.setDate(d.getDate() + 90);
+    return d;
+  }, []);
   const [placing, setPlacing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [address, setAddress] = useState(DEFAULT_ADDRESS);
@@ -55,7 +66,7 @@ export default function CheckoutPage() {
             qty: i.qty,
             isGiftSet: giftSetIds.has(i.id),
           })),
-          deliveryDate: selected.key,
+          deliveryDate: toISODate(selectedDate),
           address,
         }),
       });
@@ -67,7 +78,7 @@ export default function CheckoutPage() {
       const params = new URLSearchParams({
         orderId: data.order.order_number,
         total: String(data.order.total),
-        date: selected.full,
+        date: formatDisplayDate(selectedDate),
         address,
       });
       clear();
@@ -86,31 +97,37 @@ export default function CheckoutPage() {
       <div className="flex flex-col gap-4 px-5 py-5">
         <div className="flex flex-col gap-3 rounded-lg bg-white p-3.5 card-shadow">
           <div className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-beige text-[16px]">📅</span>
+            <button
+              type="button"
+              onClick={() => setShowCalendar((v) => !v)}
+              aria-label="Choose delivery date"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-beige text-[16px]"
+            >
+              📅
+            </button>
             <div className="flex flex-1 flex-col gap-0.5">
               <span className="text-[12px] font-medium text-soft-brown">Delivery Date</span>
-              <span className="text-[13px] font-semibold text-brown">{selected.full}</span>
+              <span className="text-[13px] font-semibold text-brown">{formatDisplayDate(selectedDate)}</span>
             </div>
+            <button
+              type="button"
+              onClick={() => setShowCalendar((v) => !v)}
+              className="text-[12px] font-semibold text-gold"
+            >
+              {showCalendar ? "Close" : "Change"}
+            </button>
           </div>
-          <div className="flex gap-2">
-            {deliveryDays.map((d) => {
-              const active = d.key === selectedDate;
-              return (
-                <button
-                  key={d.key}
-                  onClick={() => setSelectedDate(d.key)}
-                  className={`flex h-[60px] w-[50px] flex-col items-center justify-center gap-1 rounded-md ${
-                    active ? "bg-gold text-white" : "bg-beige text-brown"
-                  }`}
-                >
-                  <span className={`text-[10px] font-semibold ${active ? "text-white" : "text-soft-brown"}`}>
-                    {d.dayLabel}
-                  </span>
-                  <span className="text-[16px] font-bold">{d.dateNum}</span>
-                </button>
-              );
-            })}
-          </div>
+          {showCalendar && (
+            <Calendar
+              selected={selectedDate}
+              onSelect={(d) => {
+                setSelectedDate(d);
+                setShowCalendar(false);
+              }}
+              minDate={minDate}
+              maxDate={maxDate}
+            />
+          )}
         </div>
 
         <div className="flex items-center gap-3 rounded-lg bg-white p-3.5 card-shadow">

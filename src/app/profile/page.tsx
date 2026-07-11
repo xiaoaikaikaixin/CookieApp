@@ -1,13 +1,14 @@
+import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import BottomNav from "@/components/BottomNav";
 
 const menuItems = [
-  { icon: "📦", label: "My Orders" },
-  { icon: "📍", label: "Shipping Addresses" },
-  { icon: "💳", label: "Payment Methods" },
-  { icon: "♥", label: "Favorites" },
-  { icon: "🔔", label: "Notifications" },
-  { icon: "❓", label: "Help & Support" },
+  { icon: "📦", label: "My Orders", href: "/profile/orders" },
+  { icon: "📍", label: "Shipping Addresses", href: "/checkout/address" },
+  { icon: "💳", label: "Payment Methods", href: null },
+  { icon: "♥", label: "Favorites", href: null },
+  { icon: "🔔", label: "Notifications", href: null },
+  { icon: "❓", label: "Help & Support", href: null },
 ];
 
 export default function ProfilePage() {
@@ -43,13 +44,23 @@ export default function ProfilePage() {
       <div className="flex flex-col px-5 pt-6">
         {menuItems.map((item, i) => (
           <div key={item.label}>
-            <button className="flex w-full items-center gap-3 py-3.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-beige text-[16px]">
-                {item.icon}
-              </span>
-              <span className="flex-1 text-left text-[14px] font-semibold text-brown">{item.label}</span>
-              <span className="text-soft-brown">›</span>
-            </button>
+            {item.href ? (
+              <Link href={item.href} className="flex w-full items-center gap-3 py-3.5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-beige text-[16px]">
+                  {item.icon}
+                </span>
+                <span className="flex-1 text-left text-[14px] font-semibold text-brown">{item.label}</span>
+                <span className="text-soft-brown">›</span>
+              </Link>
+            ) : (
+              <button className="flex w-full items-center gap-3 py-3.5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-beige text-[16px]">
+                  {item.icon}
+                </span>
+                <span className="flex-1 text-left text-[14px] font-semibold text-brown">{item.label}</span>
+                <span className="text-soft-brown">›</span>
+              </button>
+            )}
             {i < menuItems.length - 1 && <div className="h-px w-full bg-beige" />}
           </div>
         ))}

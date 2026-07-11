@@ -8,6 +8,7 @@ import Calendar from "@/components/Calendar";
 import { useCart, formatSGD } from "@/lib/cart-context";
 import { giftSets } from "@/lib/products";
 import { ADDRESS_STORAGE_KEY, DEFAULT_ADDRESS } from "@/lib/address";
+import { addOrderToHistory } from "@/lib/orderHistory";
 
 const DATE_STORAGE_KEY = "lisa-cookies-delivery-date";
 
@@ -97,6 +98,12 @@ export default function CheckoutPage() {
         total: String(data.order.total),
         date: formatDisplayDate(selectedDate),
         address,
+      });
+      addOrderToHistory({
+        orderNumber: data.order.order_number,
+        total: String(data.order.total),
+        deliveryDate: formatDisplayDate(selectedDate),
+        placedAt: new Date().toISOString(),
       });
       clear();
       router.push(`/order/confirmation?${params.toString()}`);

@@ -63,6 +63,7 @@ export default function AdminDashboard({
   const [orders, setOrders] = useState(initialOrders);
   const [fromDraft, setFromDraft] = useState(from);
   const [toDraft, setToDraft] = useState(to);
+  const orderTotal = orders.reduce((sum, o) => sum + Number(o.total), 0);
 
   const applyRange = (params: { from?: string; to?: string; all?: boolean }) => {
     const next = new URLSearchParams();
@@ -160,6 +161,16 @@ export default function AdminDashboard({
             >
               All
             </button>
+          </div>
+
+          <div className="flex items-center justify-between rounded-lg bg-white px-4 py-3 card-shadow">
+            <span className="text-[12px] font-medium text-soft-brown">
+              {orders.length} order{orders.length === 1 ? "" : "s"}
+              {showAll ? "" : from === to ? ` on ${from}` : ` from ${from} to ${to}`}
+            </span>
+            <span className="text-[14px] font-bold text-brown">
+              Total <span className="text-red">{formatSGD(orderTotal)}</span>
+            </span>
           </div>
 
           {orders.length === 0 && (

@@ -9,6 +9,8 @@ import { useCart, formatSGD } from "@/lib/cart-context";
 import { giftSets } from "@/lib/products";
 import { ADDRESS_STORAGE_KEY, DEFAULT_ADDRESS } from "@/lib/address";
 
+const DATE_STORAGE_KEY = "lisa-cookies-delivery-date";
+
 function startOfDay(d: Date) {
   const copy = new Date(d);
   copy.setHours(0, 0, 0, 0);
@@ -51,7 +53,22 @@ export default function CheckoutPage() {
   useEffect(() => {
     const saved = window.localStorage.getItem(ADDRESS_STORAGE_KEY);
     if (saved) setAddress(saved);
+
+    const savedDate = window.localStorage.getItem(DATE_STORAGE_KEY);
+    if (savedDate) {
+      const parsed = new Date(`${savedDate}T00:00:00`);
+      if (!isNaN(parsed.getTime()) && parsed >= minDate && parsed <= maxDate) {
+        setSelectedDate(parsed);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const selectDate = (d: Date) => {
+    setSelectedDate(d);
+    window.localStorage.setItem(DATE_STORAGE_KEY, toISODate(d));
+    setShowCalendar(false);
+  };
 
   const placeOrder = async () => {
     setPlacing(true);
@@ -120,10 +137,7 @@ export default function CheckoutPage() {
           {showCalendar && (
             <Calendar
               selected={selectedDate}
-              onSelect={(d) => {
-                setSelectedDate(d);
-                setShowCalendar(false);
-              }}
+              onSelect={selectDate}
               minDate={minDate}
               maxDate={maxDate}
             />

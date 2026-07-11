@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { formatSGD } from "@/lib/cart-context";
 
 interface OrderItem {
@@ -44,13 +45,35 @@ export default function AdminDashboard({
   initialOrders,
   initialProducts,
   initialGiftSets,
+  from,
+  to,
+  showAll,
+  today,
 }: {
   initialOrders: Order[];
   initialProducts: StockItem[];
   initialGiftSets: StockItem[];
+  from: string;
+  to: string;
+  showAll: boolean;
+  today: string;
 }) {
+  const router = useRouter();
   const [tab, setTab] = useState<"orders" | "stock">("orders");
   const [orders, setOrders] = useState(initialOrders);
+  const [fromDraft, setFromDraft] = useState(from);
+  const [toDraft, setToDraft] = useState(to);
+
+  const applyRange = (params: { from?: string; to?: string; all?: boolean }) => {
+    const next = new URLSearchParams();
+    if (params.all) {
+      next.set("all", "1");
+    } else {
+      next.set("from", params.from ?? fromDraft);
+      next.set("to", params.to ?? toDraft);
+    }
+    router.push(`/admin?${next.toString()}`);
+  };
 
   const updateStatus = async (id: string, status: string) => {
     setOrders((prev) => prev.map((o) => (o.id === id ? { ...o, status } : o)));
@@ -90,8 +113,59 @@ export default function AdminDashboard({
 
       {tab === "orders" ? (
         <div className="mt-5 flex flex-col gap-3">
+          <div className="flex flex-wrap items-end gap-2 rounded-lg bg-white p-3 card-shadow">
+            <label className="flex flex-col gap-1">
+              <span className="text-[11px] font-medium text-soft-brown">From</span>
+              <input
+                type="date"
+                value={fromDraft}
+                onChange={(e) => setFromDraft(e.target.value)}
+                className="rounded-md border border-beige px-2 py-1.5 text-[12px] text-brown"
+              />
+            </label>
+            <label className="flex flex-col gap-1">
+              <span className="text-[11px] font-medium text-soft-brown">To</span>
+              <input
+                type="date"
+                value={toDraft}
+                onChange={(e) => setToDraft(e.target.value)}
+                className="rounded-md border border-beige px-2 py-1.5 text-[12px] text-brown"
+              />
+            </label>
+            <button
+              onClick={() => applyRange({ from: fromDraft, to: toDraft })}
+              className="rounded-md bg-gold px-3 py-1.5 text-[12px] font-semibold text-white"
+            >
+              Apply
+            </button>
+            <button
+              onClick={() => {
+                setFromDraft(today);
+                setToDraft(today);
+                applyRange({ from: today, to: today });
+              }}
+              className={`rounded-md px-3 py-1.5 text-[12px] font-semibold ${
+                !showAll && from === today && to === today
+                  ? "bg-brown text-white"
+                  : "bg-beige text-brown"
+              }`}
+            >
+              Today
+            </button>
+            <button
+              onClick={() => applyRange({ all: true })}
+              className={`rounded-md px-3 py-1.5 text-[12px] font-semibold ${
+                showAll ? "bg-brown text-white" : "bg-beige text-brown"
+              }`}
+            >
+              All
+            </button>
+          </div>
+
           {orders.length === 0 && (
-            <p className="text-[13px] text-soft-brown">No orders yet.</p>
+            <p className="text-[13px] text-soft-brown">
+              No orders {showAll ? "yet" : from === to ? `on ${from}` : `between ${from} and ${to}`}.
+            </p>
           )}
           {orders.map((order) => (
             <div key={order.id} className="rounded-lg bg-white p-4 card-shadow">

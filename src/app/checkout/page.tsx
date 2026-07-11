@@ -157,7 +157,7 @@ export default function CheckoutPage() {
             <span className="text-[12px] font-medium text-soft-brown">Delivery Address</span>
             <span className="text-[13px] font-semibold text-brown">{address}</span>
           </div>
-          <Link href="/checkout/address" className="text-[12px] font-semibold text-gold">
+          <Link href="/checkout/address?returnTo=/checkout" className="text-[12px] font-semibold text-gold">
             Change
           </Link>
         </div>

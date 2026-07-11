@@ -4,7 +4,7 @@ import BottomNav from "@/components/BottomNav";
 
 const menuItems = [
   { icon: "📦", label: "My Orders", href: "/profile/orders" },
-  { icon: "📍", label: "Shipping Addresses", href: "/checkout/address" },
+  { icon: "📍", label: "Shipping Addresses", href: "/checkout/address?returnTo=/profile" },
   { icon: "💳", label: "Payment Methods", href: null },
   { icon: "♥", label: "Favorites", href: null },
   { icon: "🔔", label: "Notifications", href: null },

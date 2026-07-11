@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import BackHeader from "@/components/BackHeader";
 import { ADDRESS_STORAGE_KEY, DEFAULT_ADDRESS } from "@/lib/address";
 
-export default function AddressPage() {
+function AddressContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const returnTo = searchParams.get("returnTo") || "/checkout";
   const [address, setAddress] = useState(DEFAULT_ADDRESS);
 
   useEffect(() => {
@@ -16,7 +18,7 @@ export default function AddressPage() {
 
   const save = () => {
     window.localStorage.setItem(ADDRESS_STORAGE_KEY, address.trim());
-    router.push("/checkout");
+    router.push(returnTo);
   };
 
   return (
@@ -45,5 +47,13 @@ export default function AddressPage() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function AddressPage() {
+  return (
+    <Suspense fallback={null}>
+      <AddressContent />
+    </Suspense>
   );
 }

@@ -20,36 +20,35 @@ function nextDayISO(dateStr: string) {
 export default async function AdminPage({
   searchParams,
 }: {
-  searchParams: Promise<{ from?: string; to?: string; all?: string }>;
+  searchParams: Promise<{ from?: string; to?: string }>;
 }) {
   const params = await searchParams;
   const today = todayISO();
   const from = params.from ?? today;
   const to = params.to ?? today;
-  const showAll = params.all === "1";
 
   const supabase = getSupabaseServerClient();
 
-  let ordersQuery = supabase.from("orders").select("*").order("created_at", { ascending: false });
-  if (!showAll) {
-    ordersQuery = ordersQuery.gte("created_at", `${from}T00:00:00Z`).lt("created_at", `${nextDayISO(to)}T00:00:00Z`);
-  }
-
   const [ordersRes, productsRes, giftSetsRes] = await Promise.all([
-    ordersQuery.limit(200),
+    supabase
+      .from("orders")
+      .select("*")
+      .gte("created_at", `${from}T00:00:00Z`)
+      .lt("created_at", `${nextDayISO(to)}T00:00:00Z`)
+      .order("created_at", { ascending: false })
+      .limit(200),
     supabase.from("products").select("id, name, stock_qty").order("name"),
     supabase.from("gift_sets").select("id, name, stock_qty").order("name"),
   ]);
 
   return (
     <AdminDashboard
-      key={`${from}-${to}-${showAll}`}
+      key={`${from}-${to}`}
       initialOrders={ordersRes.data ?? []}
       initialProducts={productsRes.data ?? []}
       initialGiftSets={giftSetsRes.data ?? []}
       from={from}
       to={to}
-      showAll={showAll}
       today={today}
     />
   );

@@ -47,7 +47,6 @@ export default function AdminDashboard({
   initialGiftSets,
   from,
   to,
-  showAll,
   today,
 }: {
   initialOrders: Order[];
@@ -55,7 +54,6 @@ export default function AdminDashboard({
   initialGiftSets: StockItem[];
   from: string;
   to: string;
-  showAll: boolean;
   today: string;
 }) {
   const router = useRouter();
@@ -65,14 +63,10 @@ export default function AdminDashboard({
   const [toDraft, setToDraft] = useState(to);
   const orderTotal = orders.reduce((sum, o) => sum + Number(o.total), 0);
 
-  const applyRange = (params: { from?: string; to?: string; all?: boolean }) => {
+  const applyRange = (params: { from?: string; to?: string }) => {
     const next = new URLSearchParams();
-    if (params.all) {
-      next.set("all", "1");
-    } else {
-      next.set("from", params.from ?? fromDraft);
-      next.set("to", params.to ?? toDraft);
-    }
+    next.set("from", params.from ?? fromDraft);
+    next.set("to", params.to ?? toDraft);
     router.push(`/admin?${next.toString()}`);
   };
 
@@ -146,27 +140,17 @@ export default function AdminDashboard({
                 applyRange({ from: today, to: today });
               }}
               className={`rounded-md px-3 py-1.5 text-[12px] font-semibold ${
-                !showAll && from === today && to === today
-                  ? "bg-brown text-white"
-                  : "bg-beige text-brown"
+                from === today && to === today ? "bg-brown text-white" : "bg-beige text-brown"
               }`}
             >
               Today
-            </button>
-            <button
-              onClick={() => applyRange({ all: true })}
-              className={`rounded-md px-3 py-1.5 text-[12px] font-semibold ${
-                showAll ? "bg-brown text-white" : "bg-beige text-brown"
-              }`}
-            >
-              All
             </button>
           </div>
 
           <div className="flex items-center justify-between rounded-lg bg-white px-4 py-3 card-shadow">
             <span className="text-[12px] font-medium text-soft-brown">
               {orders.length} order{orders.length === 1 ? "" : "s"}
-              {showAll ? "" : from === to ? ` on ${from}` : ` from ${from} to ${to}`}
+              {from === to ? ` on ${from}` : ` from ${from} to ${to}`}
             </span>
             <span className="text-[14px] font-bold text-brown">
               Total <span className="text-red">{formatSGD(orderTotal)}</span>
@@ -175,7 +159,7 @@ export default function AdminDashboard({
 
           {orders.length === 0 && (
             <p className="text-[13px] text-soft-brown">
-              No orders {showAll ? "yet" : from === to ? `on ${from}` : `between ${from} and ${to}`}.
+              No orders {from === to ? `on ${from}` : `between ${from} and ${to}`}.
             </p>
           )}
           {orders.map((order) => (

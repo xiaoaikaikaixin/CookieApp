@@ -8,21 +8,6 @@ import { categories, giftSets, products } from "@/lib/products";
 const bestSellers = products.slice(0, 4);
 const featuredGifts = giftSets.slice(0, 2);
 
-const reviews = [
-  {
-    name: "Mei Ling",
-    text: "The pineapple tarts are absolutely divine! Perfect for CNY gifting. Will order again!",
-  },
-  {
-    name: "Sarah Tan",
-    text: "Beautiful packaging and the cookies taste homemade. My family loved the gift box!",
-  },
-  {
-    name: "Amira Hassan",
-    text: "Best almond cookies I've ever had. The delivery was fast and the box was gorgeous.",
-  },
-];
-
 export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
@@ -47,31 +32,58 @@ export default function HomePage() {
         </div>
       </header>
 
-      <div className="relative h-[420px] w-full overflow-hidden">
-        <Image
-          src="/images/hero-cookies.png"
-          alt="Premium handmade cookies"
-          fill
-          sizes="480px"
-          className="object-cover"
-          priority
-        />
-        <span className="absolute right-[30px] top-10 h-2 w-2 rounded-full bg-gold" />
-        <span className="absolute right-[10px] top-[60px] h-1 w-1 rounded-full bg-gold" />
-        <span className="absolute left-[30px] top-10 h-1.5 w-1.5 rounded-full bg-red" />
-        <div className="hero-gradient absolute inset-0 flex flex-col justify-end gap-3 p-6">
-          <h2 className="font-heading text-[28px] font-bold leading-tight text-white">
-            Premium Handmade Cookies
-          </h2>
-          <p className="text-[13px] text-gold-light">
-            Handcrafted with love for every celebration
-          </p>
-          <Link
-            href="/products"
-            className="mt-2 flex w-fit items-center gap-1.5 rounded-full bg-red px-7 py-3 text-[14px] font-semibold text-white"
-          >
-            Shop Now <span aria-hidden>→</span>
-          </Link>
+      <div className="px-5 pt-2">
+        <div
+          className="relative overflow-hidden rounded-3xl p-5 shadow-[0_4px_16px_rgba(60,36,21,0.1)]"
+          style={{ background: "linear-gradient(135deg, #F5EDE3 0%, #E8D5A3 100%)" }}
+        >
+          <span className="absolute -right-14 -top-16 h-[220px] w-[220px] rounded-full bg-gold/20" />
+          <span className="absolute -left-10 bottom-0 h-[140px] w-[140px] rounded-full bg-red/[0.08]" />
+          <span className="absolute right-6 top-7 h-2.5 w-2.5 rounded-full bg-gold" />
+          <span className="absolute right-[104px] top-7 h-1.5 w-1.5 rounded-full bg-gold" />
+          <span className="absolute bottom-[46px] right-10 h-2 w-2 rounded-full bg-red" />
+
+          <div className="relative flex max-w-[200px] flex-col gap-2.5">
+            <span className="flex w-fit items-center gap-1.5 rounded-full bg-white/80 px-2.5 py-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-red" />
+              <span className="text-[10px] font-semibold tracking-[1px] text-brown">
+                NEW SEASON COLLECTION
+              </span>
+            </span>
+            <h2 className="font-heading text-[24px] font-bold leading-[1.15] text-brown">
+              Festive Cookies, Handcrafted
+            </h2>
+            <p className="text-[12px] leading-relaxed text-soft-brown">
+              Small-batch treats, baked fresh daily by Lisa.
+            </p>
+            <div className="mt-1.5 flex items-center gap-2.5">
+              <Link
+                href="/products"
+                className="flex items-center gap-1.5 rounded-full bg-red px-[18px] py-[10px] text-[13px] font-semibold text-white shadow-[0_4px_10px_rgba(196,30,58,0.25)]"
+              >
+                Shop Now <span aria-hidden>→</span>
+              </Link>
+              <Link href="/products" className="px-1 py-[10px] text-[12px] font-semibold text-brown">
+                Our Story
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative mt-6 flex items-center justify-between">
+            <span className="flex items-center gap-1 text-[11px]">
+              <span className="text-star">★</span>
+              <span className="font-bold text-brown">4.9</span>
+              <span className="text-soft-brown">· 2.4k reviews</span>
+            </span>
+            <span className="h-3 w-px bg-gold/40" />
+            <span className="flex items-center gap-1 text-[11px] font-semibold text-brown">
+              <span className="text-red">♥</span> Baked Fresh Daily
+            </span>
+            <span className="h-3 w-px bg-gold/40" />
+            <span className="flex items-center gap-1 text-[11px] font-semibold text-brown">
+              <span className="text-gold">🚚</span> Free Ship $50+
+            </span>
+          </div>
         </div>
       </div>
 
@@ -102,7 +114,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="flex flex-col gap-4 px-5 pt-7">
+      <section className="flex flex-col gap-4 px-5 pb-7 pt-7">
         <div className="flex items-center justify-between">
           <h3 className="font-heading text-[20px] font-bold text-brown">Gift Box Collection</h3>
           <Link href="/gift-box" className="flex items-center gap-1 text-[12px] font-semibold text-gold">
@@ -113,18 +125,6 @@ export default function HomePage() {
           {featuredGifts.map((g) => (
             <div key={g.id} className="flex-1">
               <GiftCard gift={g} />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="flex flex-col gap-4 px-5 py-7">
-        <h3 className="font-heading text-[20px] font-bold text-brown">Customer Reviews</h3>
-        <div className="flex flex-col gap-3">
-          {reviews.map((r) => (
-            <div key={r.name} className="rounded-lg bg-white p-3.5 card-shadow">
-              <p className="text-[13px] font-semibold text-brown">{r.name}</p>
-              <p className="mt-1 text-[12px] leading-relaxed text-soft-brown">&quot;{r.text}&quot;</p>
             </div>
           ))}
         </div>

@@ -3,12 +3,17 @@ import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
 import ProductCard from "@/components/ProductCard";
 import GiftCard from "@/components/GiftCard";
-import { categories, giftSets, products } from "@/lib/products";
+import { categories, giftSets } from "@/lib/products";
+import { getAllProducts } from "@/lib/products-server";
 
-const bestSellers = products.slice(0, 4);
+export const dynamic = "force-dynamic";
+
 const featuredGifts = giftSets.slice(0, 2);
 
-export default function HomePage() {
+export default async function HomePage() {
+  const products = await getAllProducts();
+  const bestSellers = products.slice(0, 4);
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="flex flex-col items-center gap-2.5 px-5 py-3">

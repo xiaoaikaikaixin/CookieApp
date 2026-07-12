@@ -101,3 +101,15 @@ $$;
 alter table products enable row level security;
 alter table gift_sets enable row level security;
 alter table orders enable row level security;
+
+-- Public storage bucket for product photos uploaded via the admin "Add Product" form.
+-- Uploads go through the server (service_role key, bypasses storage RLS); this
+-- policy only allows anonymous READ so customers' browsers can load the images.
+insert into storage.buckets (id, name, public)
+values ('product-images', 'product-images', true)
+on conflict (id) do nothing;
+
+drop policy if exists "Public read access for product images" on storage.objects;
+create policy "Public read access for product images"
+on storage.objects for select
+using (bucket_id = 'product-images');

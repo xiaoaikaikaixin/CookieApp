@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { formatSGD } from "@/lib/cart-context";
 
 interface OrderItem {
@@ -206,6 +207,12 @@ export default function AdminDashboard({
         </div>
       ) : (
         <div className="mt-5 flex flex-col gap-6">
+          <Link
+            href="/admin/products/new"
+            className="flex items-center justify-center rounded-md bg-gold px-4 py-2.5 text-[13px] font-semibold text-white"
+          >
+            + Add Product
+          </Link>
           <StockList title="Products" items={initialProducts} isGiftSet={false} />
           <StockList title="Gift Sets" items={initialGiftSets} isGiftSet={true} />
         </div>

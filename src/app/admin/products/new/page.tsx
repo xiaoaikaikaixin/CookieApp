@@ -16,6 +16,7 @@ export default function AddProductPage() {
   const [category, setCategory] = useState("cny");
   const [price, setPrice] = useState("");
   const [stockQty, setStockQty] = useState("20");
+  const [sortOrder, setSortOrder] = useState("");
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -41,6 +42,7 @@ export default function AddProductPage() {
       form.set("category", category);
       form.set("price", price);
       form.set("stockQty", stockQty || "0");
+      if (sortOrder.trim()) form.set("sortOrder", sortOrder.trim());
       form.set("description", description.trim());
       form.set("ingredients", ingredients.trim());
       form.set("image", imageFile);
@@ -133,6 +135,19 @@ export default function AddProductPage() {
             />
           </label>
         </div>
+
+        <label className="flex flex-col gap-1.5">
+          <span className="text-[13px] font-semibold text-brown">Display Order (optional)</span>
+          <input
+            type="number"
+            step="1"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            placeholder="Leave blank to add at the end"
+            className="rounded-md border border-beige px-3 py-2.5 text-[14px] text-brown"
+          />
+          <span className="text-[11px] text-soft-brown">Lower numbers show first on the Products page.</span>
+        </label>
 
         <label className="flex flex-col gap-1.5">
           <span className="text-[13px] font-semibold text-brown">Description</span>

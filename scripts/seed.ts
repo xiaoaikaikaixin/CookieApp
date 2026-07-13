@@ -19,7 +19,7 @@ const PRODUCT_STOCK = 50;
 const GIFT_SET_STOCK = 20;
 
 async function seed() {
-  const productRows = products.map((p) => ({
+  const productRows = products.map((p, i) => ({
     id: p.id,
     name: p.name,
     price: p.price,
@@ -30,6 +30,7 @@ async function seed() {
     rating: p.rating,
     reviews: p.reviews,
     stock_qty: PRODUCT_STOCK,
+    sort_order: (i + 1) * 10,
   }));
 
   const giftSetRows = giftSets.map((g) => ({

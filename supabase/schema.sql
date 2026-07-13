@@ -11,8 +11,24 @@ create table if not exists products (
   ingredients text,
   rating numeric(2,1),
   reviews int default 0,
-  stock_qty int not null default 0
+  stock_qty int not null default 0,
+  sort_order int not null default 0
 );
+
+-- Safe to re-run: adds the column if this table already existed without it.
+alter table products add column if not exists sort_order int not null default 0;
+
+-- One-time backfill: number any products still at the default 0 by their
+-- current alphabetical order, leaving gaps of 10 so new products can be
+-- slotted in between later without renumbering everything.
+with ordered as (
+  select id, row_number() over (order by name) as rn
+  from products
+  where sort_order = 0
+)
+update products p set sort_order = ordered.rn * 10
+from ordered
+where p.id = ordered.id;
 
 create table if not exists gift_sets (
   id text primary key,

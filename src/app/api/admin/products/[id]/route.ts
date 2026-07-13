@@ -13,6 +13,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   const category = String(form.get("category") ?? "");
   const description = String(form.get("description") ?? "").trim();
   const ingredients = String(form.get("ingredients") ?? "").trim();
+  const sortOrderRaw = form.get("sortOrder");
   const image = form.get("image");
 
   if (!name) {
@@ -24,6 +25,10 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   }
   if (!VALID_CATEGORIES.includes(category)) {
     return NextResponse.json({ error: "Invalid category" }, { status: 400 });
+  }
+  const sortOrder = Number(sortOrderRaw);
+  if (!Number.isInteger(sortOrder)) {
+    return NextResponse.json({ error: "Display order must be a whole number" }, { status: 400 });
   }
 
   const supabase = getSupabaseServerClient();
@@ -73,6 +78,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
       image: imageUrl,
       description: description || null,
       ingredients: ingredients || null,
+      sort_order: sortOrder,
     })
     .eq("id", id)
     .select()

@@ -16,6 +16,7 @@ export default function EditProductForm({ product }: { product: Product }) {
   const [name, setName] = useState(product.name);
   const [category, setCategory] = useState(product.category);
   const [price, setPrice] = useState(String(product.price));
+  const [sortOrder, setSortOrder] = useState(String(product.sortOrder ?? 0));
   const [description, setDescription] = useState(product.description);
   const [ingredients, setIngredients] = useState(product.ingredients);
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -34,6 +35,7 @@ export default function EditProductForm({ product }: { product: Product }) {
     setSaved(false);
     if (!name.trim()) return setError("Enter a product name.");
     if (!price || Number(price) <= 0) return setError("Enter a valid price.");
+    if (!Number.isInteger(Number(sortOrder))) return setError("Display order must be a whole number.");
 
     setSaving(true);
     try {
@@ -41,6 +43,7 @@ export default function EditProductForm({ product }: { product: Product }) {
       form.set("name", name.trim());
       form.set("category", category);
       form.set("price", price);
+      form.set("sortOrder", sortOrder);
       form.set("description", description.trim());
       form.set("ingredients", ingredients.trim());
       if (imageFile) form.set("image", imageFile);
@@ -108,17 +111,32 @@ export default function EditProductForm({ product }: { product: Product }) {
           </select>
         </label>
 
-        <label className="flex flex-col gap-1.5">
-          <span className="text-[13px] font-semibold text-brown">Price (SG)</span>
-          <input
-            type="number"
-            min="0"
-            step="0.01"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            className="rounded-md border border-beige px-3 py-2.5 text-[14px] text-brown"
-          />
-        </label>
+        <div className="flex gap-3">
+          <label className="flex flex-1 flex-col gap-1.5">
+            <span className="text-[13px] font-semibold text-brown">Price (SG)</span>
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              className="rounded-md border border-beige px-3 py-2.5 text-[14px] text-brown"
+            />
+          </label>
+          <label className="flex flex-1 flex-col gap-1.5">
+            <span className="text-[13px] font-semibold text-brown">Display Order</span>
+            <input
+              type="number"
+              step="1"
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+              className="rounded-md border border-beige px-3 py-2.5 text-[14px] text-brown"
+            />
+          </label>
+        </div>
+        <p className="-mt-2 text-[11px] text-soft-brown">
+          Lower numbers show first on the Products page. Products sharing a number sort alphabetically.
+        </p>
 
         <label className="flex flex-col gap-1.5">
           <span className="text-[13px] font-semibold text-brown">Description</span>

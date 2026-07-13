@@ -8,6 +8,7 @@ export interface Product {
   category: "cny" | "nuts" | "deals";
   description: string;
   ingredients: string;
+  sortOrder?: number;
 }
 
 export interface GiftSet {

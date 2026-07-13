@@ -20,6 +20,7 @@ export async function POST(req: Request) {
   const description = String(form.get("description") ?? "").trim();
   const ingredients = String(form.get("ingredients") ?? "").trim();
   const stockRaw = form.get("stockQty");
+  const sortOrderRaw = form.get("sortOrder");
   const image = form.get("image");
 
   if (!name) {
@@ -44,6 +45,17 @@ export async function POST(req: Request) {
   }
 
   const supabase = getSupabaseServerClient();
+
+  let sortOrder = Number(sortOrderRaw);
+  if (!Number.isInteger(sortOrder)) {
+    const { data: maxRow } = await supabase
+      .from("products")
+      .select("sort_order")
+      .order("sort_order", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    sortOrder = (maxRow?.sort_order ?? 0) + 10;
+  }
 
   const baseSlug = slugify(name) || "product";
   let id = baseSlug;
@@ -82,6 +94,7 @@ export async function POST(req: Request) {
       rating: 5.0,
       reviews: 0,
       stock_qty: stockQty,
+      sort_order: sortOrder,
     })
     .select()
     .single();

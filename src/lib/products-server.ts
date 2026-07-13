@@ -8,6 +8,7 @@ interface ProductRow {
   price: number | string;
   category: string | null;
   image: string;
+  images: string[] | null;
   description: string | null;
   ingredients: string | null;
   rating: number | string | null;
@@ -23,6 +24,7 @@ function mapRow(row: ProductRow): Product & { stockQty: number; sortOrder: numbe
     price: Number(row.price),
     category: (row.category ?? "deals") as Product["category"],
     image: row.image,
+    images: row.images?.length ? row.images : [row.image],
     description: row.description ?? "",
     ingredients: row.ingredients ?? "",
     rating: Number(row.rating ?? 5),

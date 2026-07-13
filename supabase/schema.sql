@@ -7,6 +7,7 @@ create table if not exists products (
   price numeric(10,2) not null,
   category text,
   image text not null,
+  images text[] not null default '{}',
   description text,
   ingredients text,
   rating numeric(2,1),
@@ -17,6 +18,11 @@ create table if not exists products (
 
 -- Safe to re-run: adds the column if this table already existed without it.
 alter table products add column if not exists sort_order int not null default 0;
+alter table products add column if not exists images text[] not null default '{}';
+
+-- One-time backfill: any product with an empty gallery gets its existing
+-- single "image" added as the first (and so far only) gallery photo.
+update products set images = array[image] where cardinality(images) = 0;
 
 -- One-time backfill: number any products still at the default 0 by their
 -- current alphabetical order, leaving gaps of 10 so new products can be

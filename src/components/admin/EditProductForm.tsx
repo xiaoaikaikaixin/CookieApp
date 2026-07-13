@@ -19,15 +19,26 @@ export default function EditProductForm({ product }: { product: Product }) {
   const [sortOrder, setSortOrder] = useState(String(product.sortOrder ?? 0));
   const [description, setDescription] = useState(product.description);
   const [ingredients, setIngredients] = useState(product.ingredients);
-  const [imageFile, setImageFile] = useState<File | null>(null);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [existingImages, setExistingImages] = useState(product.images ?? [product.image]);
+  const [newImageFiles, setNewImageFiles] = useState<File[]>([]);
+  const [newImagePreviews, setNewImagePreviews] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
 
-  const onImageChange = (file: File | null) => {
-    setImageFile(file);
-    setImagePreview(file ? URL.createObjectURL(file) : null);
+  const onImagesChange = (files: FileList | null) => {
+    const list = files ? Array.from(files) : [];
+    setNewImageFiles((prev) => [...prev, ...list]);
+    setNewImagePreviews((prev) => [...prev, ...list.map((f) => URL.createObjectURL(f))]);
+  };
+
+  const removeExisting = (url: string) => {
+    setExistingImages((prev) => prev.filter((u) => u !== url));
+  };
+
+  const removeNew = (index: number) => {
+    setNewImageFiles((prev) => prev.filter((_, i) => i !== index));
+    setNewImagePreviews((prev) => prev.filter((_, i) => i !== index));
   };
 
   const save = async () => {
@@ -36,6 +47,9 @@ export default function EditProductForm({ product }: { product: Product }) {
     if (!name.trim()) return setError("Enter a product name.");
     if (!price || Number(price) <= 0) return setError("Enter a valid price.");
     if (!Number.isInteger(Number(sortOrder))) return setError("Display order must be a whole number.");
+    if (existingImages.length === 0 && newImageFiles.length === 0) {
+      return setError("Keep at least one product image.");
+    }
 
     setSaving(true);
     try {
@@ -46,7 +60,8 @@ export default function EditProductForm({ product }: { product: Product }) {
       form.set("sortOrder", sortOrder);
       form.set("description", description.trim());
       form.set("ingredients", ingredients.trim());
-      if (imageFile) form.set("image", imageFile);
+      form.set("keepImages", JSON.stringify(existingImages));
+      newImageFiles.forEach((file) => form.append("images", file));
 
       const res = await fetch(`/api/admin/products/${product.id}`, { method: "PATCH", body: form });
       const data = await res.json();
@@ -80,20 +95,58 @@ export default function EditProductForm({ product }: { product: Product }) {
         </label>
 
         <label className="flex flex-col gap-1.5">
-          <span className="text-[13px] font-semibold text-brown">Product Image</span>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={imagePreview ?? product.image}
-            alt="Preview"
-            className="h-36 w-36 rounded-lg object-cover card-shadow"
-          />
+          <span className="text-[13px] font-semibold text-brown">Product Images</span>
+          <div className="flex flex-wrap gap-2">
+            {existingImages.map((src, i) => (
+              <div key={src} className="relative h-24 w-24">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt="Existing" className="h-24 w-24 rounded-lg object-cover card-shadow" />
+                <button
+                  type="button"
+                  onClick={() => removeExisting(src)}
+                  aria-label="Remove image"
+                  className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-red text-[11px] text-white"
+                >
+                  ✕
+                </button>
+                {i === 0 && (
+                  <span className="absolute bottom-1 left-1 rounded bg-black/60 px-1.5 py-0.5 text-[9px] font-semibold text-white">
+                    Main
+                  </span>
+                )}
+              </div>
+            ))}
+            {newImagePreviews.map((src, i) => (
+              <div key={src} className="relative h-24 w-24">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt="New" className="h-24 w-24 rounded-lg object-cover card-shadow" />
+                <button
+                  type="button"
+                  onClick={() => removeNew(i)}
+                  aria-label="Remove image"
+                  className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-red text-[11px] text-white"
+                >
+                  ✕
+                </button>
+                <span className="absolute bottom-1 left-1 rounded bg-gold px-1.5 py-0.5 text-[9px] font-semibold text-white">
+                  New
+                </span>
+              </div>
+            ))}
+          </div>
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => onImageChange(e.target.files?.[0] ?? null)}
+            multiple
+            onChange={(e) => {
+              onImagesChange(e.target.files);
+              e.target.value = "";
+            }}
             className="text-[13px] text-brown file:mr-3 file:rounded-md file:border-0 file:bg-gold file:px-3 file:py-2 file:text-[12px] file:font-semibold file:text-white"
           />
-          <span className="text-[11px] text-soft-brown">Leave empty to keep the current image.</span>
+          <span className="text-[11px] text-soft-brown">
+            Tap ✕ to remove a photo. Add more with the picker above — the first photo is the main thumbnail.
+          </span>
         </label>
 
         <label className="flex flex-col gap-1.5">

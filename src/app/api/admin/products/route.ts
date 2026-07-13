@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase-server";
+import type { SupabaseClient } from "@supabase/supabase-js";
 
 function slugify(name: string) {
   return name
@@ -7,6 +8,20 @@ function slugify(name: string) {
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+}
+
+async function uploadProductImage(supabase: SupabaseClient, id: string, image: File) {
+  const ext = image.name.split(".").pop()?.toLowerCase().replace(/[^a-z0-9]/g, "") || "jpg";
+  const path = `${id}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+  const buffer = Buffer.from(await image.arrayBuffer());
+
+  const { error } = await supabase.storage
+    .from("product-images")
+    .upload(path, buffer, { contentType: image.type, upsert: false });
+  if (error) throw new Error(`Image upload failed: ${error.message}`);
+
+  const { data } = supabase.storage.from("product-images").getPublicUrl(path);
+  return data.publicUrl;
 }
 
 const VALID_CATEGORIES = ["cny", "nuts", "deals"];
@@ -21,7 +36,7 @@ export async function POST(req: Request) {
   const ingredients = String(form.get("ingredients") ?? "").trim();
   const stockRaw = form.get("stockQty");
   const sortOrderRaw = form.get("sortOrder");
-  const image = form.get("image");
+  const images = form.getAll("images").filter((f): f is File => f instanceof File && f.size > 0);
 
   if (!name) {
     return NextResponse.json({ error: "Name is required" }, { status: 400 });
@@ -37,11 +52,11 @@ export async function POST(req: Request) {
   if (!Number.isInteger(stockQty) || stockQty < 0) {
     return NextResponse.json({ error: "Initial stock must be a non-negative whole number" }, { status: 400 });
   }
-  if (!(image instanceof File) || image.size === 0) {
-    return NextResponse.json({ error: "Product image is required" }, { status: 400 });
+  if (images.length === 0) {
+    return NextResponse.json({ error: "At least one product image is required" }, { status: 400 });
   }
-  if (!image.type.startsWith("image/")) {
-    return NextResponse.json({ error: "File must be an image" }, { status: 400 });
+  if (images.some((img) => !img.type.startsWith("image/"))) {
+    return NextResponse.json({ error: "All files must be images" }, { status: 400 });
   }
 
   const supabase = getSupabaseServerClient();
@@ -67,19 +82,12 @@ export async function POST(req: Request) {
     suffix += 1;
   }
 
-  const ext = image.name.split(".").pop()?.toLowerCase().replace(/[^a-z0-9]/g, "") || "jpg";
-  const path = `${id}-${Date.now()}.${ext}`;
-  const buffer = Buffer.from(await image.arrayBuffer());
-
-  const { error: uploadError } = await supabase.storage
-    .from("product-images")
-    .upload(path, buffer, { contentType: image.type, upsert: false });
-
-  if (uploadError) {
-    return NextResponse.json({ error: `Image upload failed: ${uploadError.message}` }, { status: 500 });
+  let imageUrls: string[];
+  try {
+    imageUrls = await Promise.all(images.map((img) => uploadProductImage(supabase, id, img)));
+  } catch (err) {
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
   }
-
-  const { data: publicUrlData } = supabase.storage.from("product-images").getPublicUrl(path);
 
   const { data: product, error: insertError } = await supabase
     .from("products")
@@ -88,7 +96,8 @@ export async function POST(req: Request) {
       name,
       price,
       category,
-      image: publicUrlData.publicUrl,
+      image: imageUrls[0],
+      images: imageUrls,
       description: description || null,
       ingredients: ingredients || null,
       rating: 5.0,

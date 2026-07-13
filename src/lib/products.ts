@@ -5,6 +5,7 @@ export interface Product {
   rating: number;
   reviews: number;
   image: string;
+  images?: string[];
   category: "cny" | "nuts" | "deals";
   description: string;
   ingredients: string;

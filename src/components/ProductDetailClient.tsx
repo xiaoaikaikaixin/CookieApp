@@ -10,13 +10,15 @@ export default function ProductDetailClient({ product }: { product: Product }) {
   const router = useRouter();
   const { addItem } = useCart();
   const [qty, setQty] = useState(1);
+  const images = product.images?.length ? product.images : [product.image];
+  const [activeImage, setActiveImage] = useState(images[0]);
 
   const total = product.price * qty;
 
   return (
     <div className="flex min-h-screen flex-col">
       <div className="relative h-[320px] w-full">
-        <Image src={product.image} alt={product.name} fill sizes="480px" className="object-cover" />
+        <Image src={activeImage} alt={product.name} fill sizes="480px" className="object-cover" />
         <button
           onClick={() => router.back()}
           aria-label="Go back"
@@ -31,6 +33,22 @@ export default function ProductDetailClient({ product }: { product: Product }) {
           ♥
         </button>
       </div>
+
+      {images.length > 1 && (
+        <div className="flex gap-2 overflow-x-auto px-5 pt-3">
+          {images.map((src) => (
+            <button
+              key={src}
+              onClick={() => setActiveImage(src)}
+              className={`relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg ${
+                activeImage === src ? "ring-2 ring-gold" : "opacity-70"
+              }`}
+            >
+              <Image src={src} alt={product.name} fill sizes="64px" className="object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="flex flex-col gap-4 px-5 py-5">
         <h1 className="font-heading text-[22px] font-bold text-brown">{product.name}</h1>

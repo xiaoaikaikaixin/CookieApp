@@ -3,6 +3,22 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import {
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+  useSortable,
+  arrayMove,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import { formatSGD } from "@/lib/cart-context";
 
 interface OrderItem {
@@ -239,6 +255,12 @@ function StockList({
   const [drafts, setDrafts] = useState<Record<string, string>>({});
   const [savingId, setSavingId] = useState<string | null>(null);
   const [savedId, setSavedId] = useState<string | null>(null);
+  const [reorderError, setReorderError] = useState<string | null>(null);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 150, tolerance: 5 } })
+  );
 
   const save = async (id: string) => {
     const draft = drafts[id];
@@ -259,42 +281,131 @@ function StockList({
     }
   };
 
+  const handleDragEnd = async (event: DragEndEvent) => {
+    const { active, over } = event;
+    if (!over || active.id === over.id) return;
+
+    const oldIndex = stock.findIndex((i) => i.id === active.id);
+    const newIndex = stock.findIndex((i) => i.id === over.id);
+    const reordered = arrayMove(stock, oldIndex, newIndex).map((item, i) => ({
+      ...item,
+      sort_order: i + 1,
+    }));
+    const previous = stock;
+    setStock(reordered);
+    setReorderError(null);
+
+    const res = await fetch("/api/admin/products/reorder", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ids: reordered.map((i) => i.id) }),
+    });
+    if (!res.ok) {
+      setStock(previous);
+      setReorderError("Could not save the new order — please try again.");
+    }
+  };
+
+  const rows = stock.map((item) => (
+    <StockRow
+      key={item.id}
+      item={item}
+      editable={editable}
+      draft={drafts[item.id] ?? ""}
+      onDraftChange={(v) => setDrafts((d) => ({ ...d, [item.id]: v }))}
+      onSave={() => save(item.id)}
+      saving={savingId === item.id}
+      saved={savedId === item.id}
+    />
+  ));
+
   return (
     <div>
       <h2 className="text-[15px] font-bold text-brown">{title}</h2>
-      <div className="mt-2 flex flex-col gap-2">
-        {stock.map((item) => (
-          <div key={item.id} className="flex items-center gap-3 rounded-lg bg-white p-3 card-shadow">
-            {item.sort_order !== undefined && (
-              <span className="w-7 flex-shrink-0 text-[11px] font-semibold text-soft-brown">
-                #{item.sort_order}
-              </span>
-            )}
-            <span className="flex-1 text-[13px] font-medium text-brown">{item.name}</span>
-            {editable && (
-              <Link href={`/admin/products/${item.id}/edit`} className="text-[11px] font-semibold text-gold">
-                Edit
-              </Link>
-            )}
-            <span className="text-[11px] text-soft-brown">current: {item.stock_qty}</span>
-            <input
-              type="number"
-              min={0}
-              placeholder={String(item.stock_qty)}
-              value={drafts[item.id] ?? ""}
-              onChange={(e) => setDrafts((d) => ({ ...d, [item.id]: e.target.value }))}
-              className="w-16 rounded-md border border-beige px-2 py-1 text-[13px] text-brown"
-            />
-            <button
-              onClick={() => save(item.id)}
-              disabled={savingId === item.id || !drafts[item.id]}
-              className="rounded-md bg-gold px-3 py-1.5 text-[12px] font-semibold text-white disabled:opacity-40"
-            >
-              {savingId === item.id ? "…" : savedId === item.id ? "✓" : "Update"}
-            </button>
-          </div>
-        ))}
-      </div>
+      {reorderError && <p className="mt-1 text-[12px] font-medium text-red">{reorderError}</p>}
+      {editable ? (
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+          <SortableContext items={stock.map((i) => i.id)} strategy={verticalListSortingStrategy}>
+            <div className="mt-2 flex flex-col gap-2">{rows}</div>
+          </SortableContext>
+        </DndContext>
+      ) : (
+        <div className="mt-2 flex flex-col gap-2">{rows}</div>
+      )}
+    </div>
+  );
+}
+
+function StockRow({
+  item,
+  editable,
+  draft,
+  onDraftChange,
+  onSave,
+  saving,
+  saved,
+}: {
+  item: StockItem;
+  editable?: boolean;
+  draft: string;
+  onDraftChange: (v: string) => void;
+  onSave: () => void;
+  saving: boolean;
+  saved: boolean;
+}) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+    id: item.id,
+    disabled: !editable,
+  });
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      className="flex items-center gap-3 rounded-lg bg-white p-3 card-shadow"
+    >
+      {editable && (
+        <button
+          {...attributes}
+          {...listeners}
+          aria-label="Drag to reorder"
+          className="touch-none cursor-grab px-0.5 text-[16px] text-soft-brown active:cursor-grabbing"
+        >
+          ⋮⋮
+        </button>
+      )}
+      {item.sort_order !== undefined && (
+        <span className="w-7 flex-shrink-0 text-[11px] font-semibold text-soft-brown">
+          #{item.sort_order}
+        </span>
+      )}
+      <span className="flex-1 text-[13px] font-medium text-brown">{item.name}</span>
+      {editable && (
+        <Link href={`/admin/products/${item.id}/edit`} className="text-[11px] font-semibold text-gold">
+          Edit
+        </Link>
+      )}
+      <span className="text-[11px] text-soft-brown">current: {item.stock_qty}</span>
+      <input
+        type="number"
+        min={0}
+        placeholder={String(item.stock_qty)}
+        value={draft}
+        onChange={(e) => onDraftChange(e.target.value)}
+        className="w-16 rounded-md border border-beige px-2 py-1 text-[13px] text-brown"
+      />
+      <button
+        onClick={onSave}
+        disabled={saving || !draft}
+        className="rounded-md bg-gold px-3 py-1.5 text-[12px] font-semibold text-white disabled:opacity-40"
+      >
+        {saving ? "…" : saved ? "✓" : "Update"}
+      </button>
     </div>
   );
 }

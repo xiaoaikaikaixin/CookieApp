@@ -20,12 +20,13 @@ function nextDayISO(dateStr: string) {
 export default async function AdminPage({
   searchParams,
 }: {
-  searchParams: Promise<{ from?: string; to?: string }>;
+  searchParams: Promise<{ from?: string; to?: string; tab?: string }>;
 }) {
   const params = await searchParams;
   const today = todayISO();
   const from = params.from ?? today;
   const to = params.to ?? today;
+  const initialTab = params.tab === "stock" ? "stock" : "orders";
 
   const supabase = getSupabaseServerClient();
 
@@ -37,7 +38,11 @@ export default async function AdminPage({
       .lt("created_at", `${nextDayISO(to)}T00:00:00Z`)
       .order("created_at", { ascending: false })
       .limit(200),
-    supabase.from("products").select("id, name, stock_qty").order("name"),
+    supabase
+      .from("products")
+      .select("id, name, stock_qty, sort_order")
+      .order("sort_order", { ascending: true })
+      .order("name", { ascending: true }),
     supabase.from("gift_sets").select("id, name, stock_qty").order("name"),
   ]);
 
@@ -50,6 +55,7 @@ export default async function AdminPage({
       from={from}
       to={to}
       today={today}
+      initialTab={initialTab}
     />
   );
 }

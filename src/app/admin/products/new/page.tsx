@@ -59,7 +59,7 @@ export default function AddProductPage() {
         setError(data.error ?? "Could not save product.");
         return;
       }
-      router.push("/admin");
+      router.push("/admin?tab=stock");
     } catch {
       setError("Network error — please try again.");
     } finally {

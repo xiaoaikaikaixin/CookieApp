@@ -71,7 +71,7 @@ export default function EditProductForm({ product }: { product: Product }) {
       }
       setSaved(true);
       router.refresh();
-      setTimeout(() => router.push("/admin"), 700);
+      setTimeout(() => router.push("/admin?tab=stock"), 700);
     } catch {
       setError("Network error — please try again.");
     } finally {

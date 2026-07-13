@@ -30,6 +30,7 @@ interface StockItem {
   id: string;
   name: string;
   stock_qty: number;
+  sort_order?: number;
 }
 
 const STATUSES = ["placed", "preparing", "ready", "completed", "cancelled"];
@@ -49,6 +50,7 @@ export default function AdminDashboard({
   from,
   to,
   today,
+  initialTab,
 }: {
   initialOrders: Order[];
   initialProducts: StockItem[];
@@ -56,9 +58,10 @@ export default function AdminDashboard({
   from: string;
   to: string;
   today: string;
+  initialTab: "orders" | "stock";
 }) {
   const router = useRouter();
-  const [tab, setTab] = useState<"orders" | "stock">("orders");
+  const [tab, setTab] = useState<"orders" | "stock">(initialTab);
   const [orders, setOrders] = useState(initialOrders);
   const [fromDraft, setFromDraft] = useState(from);
   const [toDraft, setToDraft] = useState(to);
@@ -262,6 +265,11 @@ function StockList({
       <div className="mt-2 flex flex-col gap-2">
         {stock.map((item) => (
           <div key={item.id} className="flex items-center gap-3 rounded-lg bg-white p-3 card-shadow">
+            {item.sort_order !== undefined && (
+              <span className="w-7 flex-shrink-0 text-[11px] font-semibold text-soft-brown">
+                #{item.sort_order}
+              </span>
+            )}
             <span className="flex-1 text-[13px] font-medium text-brown">{item.name}</span>
             {editable && (
               <Link href={`/admin/products/${item.id}/edit`} className="text-[11px] font-semibold text-gold">

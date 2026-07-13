@@ -232,8 +232,14 @@ export default function AdminDashboard({
           >
             + Add Product
           </Link>
-          <StockList title="Products" items={initialProducts} isGiftSet={false} editable />
-          <StockList title="Gift Sets" items={initialGiftSets} isGiftSet={true} />
+          <StockList title="Products" items={initialProducts} isGiftSet={false} kind="product" editable />
+          <Link
+            href="/admin/gift-sets/new"
+            className="flex items-center justify-center rounded-md bg-gold px-4 py-2.5 text-[13px] font-semibold text-white"
+          >
+            + Add Gift Set
+          </Link>
+          <StockList title="Gift Sets" items={initialGiftSets} isGiftSet={true} kind="giftSet" editable />
         </div>
       )}
     </div>
@@ -244,11 +250,13 @@ function StockList({
   title,
   items,
   isGiftSet,
+  kind,
   editable,
 }: {
   title: string;
   items: StockItem[];
   isGiftSet: boolean;
+  kind: "product" | "giftSet";
   editable?: boolean;
 }) {
   const [stock, setStock] = useState(items);
@@ -295,7 +303,9 @@ function StockList({
     setStock(reordered);
     setReorderError(null);
 
-    const res = await fetch("/api/admin/products/reorder", {
+    const reorderUrl =
+      kind === "giftSet" ? "/api/admin/gift-sets/reorder" : "/api/admin/products/reorder";
+    const res = await fetch(reorderUrl, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ids: reordered.map((i) => i.id) }),
@@ -310,6 +320,7 @@ function StockList({
     <StockRow
       key={item.id}
       item={item}
+      kind={kind}
       editable={editable}
       draft={drafts[item.id] ?? ""}
       onDraftChange={(v) => setDrafts((d) => ({ ...d, [item.id]: v }))}
@@ -338,6 +349,7 @@ function StockList({
 
 function StockRow({
   item,
+  kind,
   editable,
   draft,
   onDraftChange,
@@ -346,6 +358,7 @@ function StockRow({
   saved,
 }: {
   item: StockItem;
+  kind: "product" | "giftSet";
   editable?: boolean;
   draft: string;
   onDraftChange: (v: string) => void;
@@ -386,7 +399,10 @@ function StockRow({
       )}
       <span className="flex-1 text-[13px] font-medium text-brown">{item.name}</span>
       {editable && (
-        <Link href={`/admin/products/${item.id}/edit`} className="text-[11px] font-semibold text-gold">
+        <Link
+          href={`/admin/${kind === "giftSet" ? "gift-sets" : "products"}/${item.id}/edit`}
+          className="text-[11px] font-semibold text-gold"
+        >
           Edit
         </Link>
       )}

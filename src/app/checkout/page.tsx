@@ -6,7 +6,6 @@ import Link from "next/link";
 import BackHeader from "@/components/BackHeader";
 import Calendar from "@/components/Calendar";
 import { useCart, formatSGD } from "@/lib/cart-context";
-import { giftSets } from "@/lib/products";
 import { ADDRESS_STORAGE_KEY, DEFAULT_ADDRESS } from "@/lib/address";
 import { addOrderToHistory } from "@/lib/orderHistory";
 
@@ -49,7 +48,6 @@ export default function CheckoutPage() {
   const [placing, setPlacing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [address, setAddress] = useState(DEFAULT_ADDRESS);
-  const giftSetIds = useMemo(() => new Set(giftSets.map((g) => g.id)), []);
 
   useEffect(() => {
     const saved = window.localStorage.getItem(ADDRESS_STORAGE_KEY);
@@ -82,7 +80,7 @@ export default function CheckoutPage() {
           items: items.map((i) => ({
             id: i.id,
             qty: i.qty,
-            isGiftSet: giftSetIds.has(i.id),
+            isGiftSet: i.isGiftSet ?? false,
           })),
           deliveryDate: toISODate(selectedDate),
           address,

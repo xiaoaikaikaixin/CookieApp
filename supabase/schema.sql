@@ -41,9 +41,30 @@ create table if not exists gift_sets (
   name text not null,
   price numeric(10,2) not null,
   image text not null,
+  images text[] not null default '{}',
   description text,
-  stock_qty int not null default 0
+  stock_qty int not null default 0,
+  sort_order int not null default 0
 );
+
+-- Safe to re-run: adds the columns if this table already existed without them.
+alter table gift_sets add column if not exists sort_order int not null default 0;
+alter table gift_sets add column if not exists images text[] not null default '{}';
+
+-- One-time backfill: any gift set with an empty gallery gets its existing
+-- single "image" added as the first (and so far only) gallery photo.
+update gift_sets set images = array[image] where cardinality(images) = 0;
+
+-- One-time backfill: number any gift sets still at the default 0 by their
+-- current alphabetical order, leaving gaps of 10.
+with ordered as (
+  select id, row_number() over (order by name) as rn
+  from gift_sets
+  where sort_order = 0
+)
+update gift_sets g set sort_order = ordered.rn * 10
+from ordered
+where g.id = ordered.id;
 
 create table if not exists orders (
   id uuid primary key default gen_random_uuid(),

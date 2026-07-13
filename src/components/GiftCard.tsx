@@ -29,7 +29,13 @@ export default function GiftCard({ gift }: { gift: GiftSet }) {
           <span className="text-[16px] font-bold text-red">{formatSGD(gift.price)}</span>
           <button
             onClick={() =>
-              addItem({ id: gift.id, name: gift.name, price: gift.price, image: gift.image })
+              addItem({
+                id: gift.id,
+                name: gift.name,
+                price: gift.price,
+                image: gift.image,
+                isGiftSet: true,
+              })
             }
             className="h-8 rounded-sm bg-gold px-3 text-[11px] font-semibold text-white transition hover:brightness-95"
           >

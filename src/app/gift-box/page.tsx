@@ -1,9 +1,13 @@
 import PageHeader from "@/components/PageHeader";
 import BottomNav from "@/components/BottomNav";
 import GiftCard from "@/components/GiftCard";
-import { giftSets } from "@/lib/products";
+import { getAllGiftSets } from "@/lib/products-server";
 
-export default function GiftBoxPage() {
+export const dynamic = "force-dynamic";
+
+export default async function GiftBoxPage() {
+  const giftSets = await getAllGiftSets();
+
   return (
     <div className="flex min-h-screen flex-col">
       <PageHeader title="Gift Box Collection" />

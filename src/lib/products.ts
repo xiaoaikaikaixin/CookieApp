@@ -18,6 +18,8 @@ export interface GiftSet {
   desc: string;
   price: number;
   image: string;
+  images?: string[];
+  sortOrder?: number;
 }
 
 export const products: Product[] = [

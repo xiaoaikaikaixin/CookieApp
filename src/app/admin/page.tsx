@@ -43,7 +43,11 @@ export default async function AdminPage({
       .select("id, name, stock_qty, sort_order")
       .order("sort_order", { ascending: true })
       .order("name", { ascending: true }),
-    supabase.from("gift_sets").select("id, name, stock_qty").order("name"),
+    supabase
+      .from("gift_sets")
+      .select("id, name, stock_qty, sort_order")
+      .order("sort_order", { ascending: true })
+      .order("name", { ascending: true }),
   ]);
 
   return (

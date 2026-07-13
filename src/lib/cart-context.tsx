@@ -16,6 +16,7 @@ export interface CartItem {
   price: number;
   image: string;
   qty: number;
+  isGiftSet?: boolean;
 }
 
 interface CartContextValue {

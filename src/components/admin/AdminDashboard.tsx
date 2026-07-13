@@ -213,7 +213,7 @@ export default function AdminDashboard({
           >
             + Add Product
           </Link>
-          <StockList title="Products" items={initialProducts} isGiftSet={false} />
+          <StockList title="Products" items={initialProducts} isGiftSet={false} editable />
           <StockList title="Gift Sets" items={initialGiftSets} isGiftSet={true} />
         </div>
       )}
@@ -225,10 +225,12 @@ function StockList({
   title,
   items,
   isGiftSet,
+  editable,
 }: {
   title: string;
   items: StockItem[];
   isGiftSet: boolean;
+  editable?: boolean;
 }) {
   const [stock, setStock] = useState(items);
   const [drafts, setDrafts] = useState<Record<string, string>>({});
@@ -261,6 +263,11 @@ function StockList({
         {stock.map((item) => (
           <div key={item.id} className="flex items-center gap-3 rounded-lg bg-white p-3 card-shadow">
             <span className="flex-1 text-[13px] font-medium text-brown">{item.name}</span>
+            {editable && (
+              <Link href={`/admin/products/${item.id}/edit`} className="text-[11px] font-semibold text-gold">
+                Edit
+              </Link>
+            )}
             <span className="text-[11px] text-soft-brown">current: {item.stock_qty}</span>
             <input
               type="number"

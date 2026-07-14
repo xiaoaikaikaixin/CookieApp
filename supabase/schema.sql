@@ -146,11 +146,23 @@ begin
 end;
 $$;
 
+-- Single-row table for store-wide settings (delivery fee, free-delivery threshold).
+create table if not exists settings (
+  id int primary key default 1,
+  delivery_fee numeric(10,2) not null default 5,
+  free_delivery_threshold numeric(10,2) not null default 100
+);
+
+insert into settings (id, delivery_fee, free_delivery_threshold)
+values (1, 5, 100)
+on conflict (id) do nothing;
+
 -- Row Level Security: block all client-side (anon key) access.
 -- All reads/writes go through the server (service_role key), which bypasses RLS.
 alter table products enable row level security;
 alter table gift_sets enable row level security;
 alter table orders enable row level security;
+alter table settings enable row level security;
 
 -- Public storage bucket for product photos uploaded via the admin "Add Product" form.
 -- Uploads go through the server (service_role key, bypasses storage RLS); this

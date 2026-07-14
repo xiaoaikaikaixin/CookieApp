@@ -31,7 +31,8 @@ interface CartContextValue {
   count: number;
 }
 
-const DELIVERY_FEE = 8;
+const DEFAULT_DELIVERY_FEE = 5;
+const DEFAULT_FREE_DELIVERY_THRESHOLD = 100;
 const STORAGE_KEY = "lisa-cookies-cart";
 
 const CartContext = createContext<CartContextValue | undefined>(undefined);
@@ -39,6 +40,10 @@ const CartContext = createContext<CartContextValue | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [hydrated, setHydrated] = useState(false);
+  const [deliverySettings, setDeliverySettings] = useState({
+    deliveryFee: DEFAULT_DELIVERY_FEE,
+    freeDeliveryThreshold: DEFAULT_FREE_DELIVERY_THRESHOLD,
+  });
 
   useEffect(() => {
     try {
@@ -48,6 +53,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
       // ignore corrupt storage
     }
     setHydrated(true);
+
+    fetch("/api/settings")
+      .then((res) => res.json())
+      .then((data) => {
+        if (typeof data.deliveryFee === "number" && typeof data.freeDeliveryThreshold === "number") {
+          setDeliverySettings(data);
+        }
+      })
+      .catch(() => {
+        // keep defaults if the fetch fails
+      });
   }, []);
 
   useEffect(() => {
@@ -85,7 +101,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
     () => items.reduce((sum, i) => sum + i.price * i.qty, 0),
     [items]
   );
-  const deliveryFee = items.length > 0 ? DELIVERY_FEE : 0;
+  const deliveryFee =
+    items.length === 0
+      ? 0
+      : subtotal >= deliverySettings.freeDeliveryThreshold
+        ? 0
+        : deliverySettings.deliveryFee;
   const total = subtotal + deliveryFee;
   const count = useMemo(() => items.reduce((sum, i) => sum + i.qty, 0), [items]);
 

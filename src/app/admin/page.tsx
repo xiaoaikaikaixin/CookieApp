@@ -1,4 +1,5 @@
 import { getSupabaseServerClient } from "@/lib/supabase-server";
+import { getDeliverySettings } from "@/lib/settings-server";
 import AdminDashboard from "@/components/admin/AdminDashboard";
 
 export const dynamic = "force-dynamic";
@@ -26,11 +27,12 @@ export default async function AdminPage({
   const today = todayISO();
   const from = params.from ?? today;
   const to = params.to ?? today;
-  const initialTab = params.tab === "stock" ? "stock" : "orders";
+  const initialTab =
+    params.tab === "stock" ? "stock" : params.tab === "settings" ? "settings" : "orders";
 
   const supabase = getSupabaseServerClient();
 
-  const [ordersRes, productsRes, giftSetsRes] = await Promise.all([
+  const [ordersRes, productsRes, giftSetsRes, initialSettings] = await Promise.all([
     supabase
       .from("orders")
       .select("*")
@@ -48,6 +50,7 @@ export default async function AdminPage({
       .select("id, name, stock_qty, sort_order")
       .order("sort_order", { ascending: true })
       .order("name", { ascending: true }),
+    getDeliverySettings(),
   ]);
 
   return (
@@ -56,6 +59,7 @@ export default async function AdminPage({
       initialOrders={ordersRes.data ?? []}
       initialProducts={productsRes.data ?? []}
       initialGiftSets={giftSetsRes.data ?? []}
+      initialSettings={initialSettings}
       from={from}
       to={to}
       today={today}

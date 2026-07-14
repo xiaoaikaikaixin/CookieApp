@@ -51,6 +51,11 @@ interface StockItem {
   sort_order?: number;
 }
 
+interface DeliverySettings {
+  deliveryFee: number;
+  freeDeliveryThreshold: number;
+}
+
 const STATUSES = ["placed", "preparing", "ready", "completed", "cancelled"];
 
 const STATUS_COLORS: Record<string, string> = {
@@ -65,6 +70,7 @@ export default function AdminDashboard({
   initialOrders,
   initialProducts,
   initialGiftSets,
+  initialSettings,
   from,
   to,
   today,
@@ -73,13 +79,14 @@ export default function AdminDashboard({
   initialOrders: Order[];
   initialProducts: StockItem[];
   initialGiftSets: StockItem[];
+  initialSettings: DeliverySettings;
   from: string;
   to: string;
   today: string;
-  initialTab: "orders" | "stock";
+  initialTab: "orders" | "stock" | "settings";
 }) {
   const router = useRouter();
-  const [tab, setTab] = useState<"orders" | "stock">(initialTab);
+  const [tab, setTab] = useState<"orders" | "stock" | "settings">(initialTab);
   const [orders, setOrders] = useState(initialOrders);
   const [fromDraft, setFromDraft] = useState(from);
   const [toDraft, setToDraft] = useState(to);
@@ -125,6 +132,14 @@ export default function AdminDashboard({
           }`}
         >
           Stock
+        </button>
+        <button
+          onClick={() => setTab("settings")}
+          className={`rounded-full px-4 py-2 text-[13px] font-semibold ${
+            tab === "settings" ? "bg-gold text-white" : "bg-beige text-brown"
+          }`}
+        >
+          Settings
         </button>
       </div>
 
@@ -232,7 +247,7 @@ export default function AdminDashboard({
             </div>
           ))}
         </div>
-      ) : (
+      ) : tab === "stock" ? (
         <div className="mt-5 flex flex-col gap-6">
           <Link
             href="/admin/products/new"
@@ -249,6 +264,8 @@ export default function AdminDashboard({
           </Link>
           <StockList title="Gift Sets" items={initialGiftSets} isGiftSet={true} kind="giftSet" editable />
         </div>
+      ) : (
+        <SettingsPanel initialSettings={initialSettings} />
       )}
     </div>
   );
@@ -432,6 +449,92 @@ function StockRow({
           className="flex-shrink-0 rounded-md bg-gold px-3 py-1.5 text-[12px] font-semibold text-white disabled:opacity-40"
         >
           {saving ? "…" : saved ? "✓" : "Update"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function SettingsPanel({ initialSettings }: { initialSettings: DeliverySettings }) {
+  const [deliveryFee, setDeliveryFee] = useState(String(initialSettings.deliveryFee));
+  const [freeDeliveryThreshold, setFreeDeliveryThreshold] = useState(
+    String(initialSettings.freeDeliveryThreshold)
+  );
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const save = async () => {
+    setError(null);
+    setSaved(false);
+    const fee = Number(deliveryFee);
+    const threshold = Number(freeDeliveryThreshold);
+    if (!Number.isFinite(fee) || fee < 0) {
+      setError("Enter a valid delivery fee.");
+      return;
+    }
+    if (!Number.isFinite(threshold) || threshold < 0) {
+      setError("Enter a valid free delivery threshold.");
+      return;
+    }
+
+    setSaving(true);
+    try {
+      const res = await fetch("/api/admin/settings", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ deliveryFee: fee, freeDeliveryThreshold: threshold }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "Could not save settings.");
+        return;
+      }
+      setSaved(true);
+      setTimeout(() => setSaved(false), 1500);
+    } catch {
+      setError("Network error — please try again.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div className="mt-5 flex flex-col gap-4">
+      <div className="flex flex-col gap-4 rounded-lg bg-white p-4 card-shadow">
+        <h2 className="text-[15px] font-bold text-brown">Delivery Fee</h2>
+        <label className="flex flex-col gap-1.5">
+          <span className="text-[13px] font-semibold text-brown">Delivery Fee (SG$)</span>
+          <input
+            type="number"
+            min={0}
+            step="0.01"
+            value={deliveryFee}
+            onChange={(e) => setDeliveryFee(e.target.value)}
+            className="rounded-md border border-beige px-3 py-2.5 text-[14px] text-brown"
+          />
+        </label>
+        <label className="flex flex-col gap-1.5">
+          <span className="text-[13px] font-semibold text-brown">Free Delivery Threshold (SG$)</span>
+          <input
+            type="number"
+            min={0}
+            step="0.01"
+            value={freeDeliveryThreshold}
+            onChange={(e) => setFreeDeliveryThreshold(e.target.value)}
+            className="rounded-md border border-beige px-3 py-2.5 text-[14px] text-brown"
+          />
+          <span className="text-[11px] text-soft-brown">
+            Orders at or above this amount get free delivery. Set to 0 to disable free delivery.
+          </span>
+        </label>
+        {error && <p className="text-[12px] font-medium text-red">{error}</p>}
+        <button
+          onClick={save}
+          disabled={saving}
+          className="flex h-[46px] w-full items-center justify-center rounded-md bg-gold text-[14px] font-bold text-white transition hover:brightness-95 disabled:opacity-50"
+        >
+          {saving ? "Saving…" : saved ? "Saved ✓" : "Save Settings"}
         </button>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase-server";
-
-const DELIVERY_FEE = 8;
+import { getDeliverySettings } from "@/lib/settings-server";
 
 interface IncomingItem {
   id: string;
@@ -75,7 +74,8 @@ export async function POST(req: Request) {
     };
   });
 
-  const deliveryFee = DELIVERY_FEE;
+  const { deliveryFee: baseDeliveryFee, freeDeliveryThreshold } = await getDeliverySettings();
+  const deliveryFee = subtotal >= freeDeliveryThreshold ? 0 : baseDeliveryFee;
   const total = subtotal + deliveryFee;
   const orderNumber = `LC${Date.now().toString().slice(-8)}`;
 

@@ -10,7 +10,13 @@ interface IncomingItem {
 }
 
 export async function POST(req: Request) {
-  let body: { items?: IncomingItem[]; deliveryDate?: string; address?: string };
+  let body: {
+    items?: IncomingItem[];
+    deliveryDate?: string;
+    address?: string;
+    customerName?: string;
+    customerPhone?: string;
+  };
   try {
     body = await req.json();
   } catch {
@@ -25,6 +31,9 @@ export async function POST(req: Request) {
     if (!item.id || !Number.isInteger(item.qty) || item.qty < 1) {
       return NextResponse.json({ error: "Invalid item in cart" }, { status: 400 });
     }
+  }
+  if (!body.customerName?.trim() || !body.customerPhone?.trim()) {
+    return NextResponse.json({ error: "Name and phone are required" }, { status: 400 });
   }
 
   const supabase = getSupabaseServerClient();
@@ -78,6 +87,8 @@ export async function POST(req: Request) {
     p_total: total,
     p_delivery_date: body.deliveryDate ?? null,
     p_delivery_address: body.address ?? null,
+    p_customer_name: body.customerName!.trim(),
+    p_customer_phone: body.customerPhone!.trim(),
   });
 
   if (orderError) {

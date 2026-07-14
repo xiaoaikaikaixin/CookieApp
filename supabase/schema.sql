@@ -75,19 +75,24 @@ create table if not exists orders (
   total numeric(10,2) not null,
   delivery_date date,
   delivery_address text,
+  customer_name text,
+  customer_phone text,
   status text not null default 'placed',
   created_at timestamptz not null default now()
 );
 
--- Safe to re-run: adds the column if this table already existed without it.
+-- Safe to re-run: adds the columns if this table already existed without them.
 alter table orders add column if not exists delivery_address text;
+alter table orders add column if not exists customer_name text;
+alter table orders add column if not exists customer_phone text;
 
 -- Atomically checks stock, decrements it, and records the order.
 -- Row-level locking (FOR UPDATE) prevents two concurrent orders from
 -- both succeeding when only one unit of stock is left.
--- Signature changed (added p_delivery_address), so drop the old version
--- first: create-or-replace can't change a function's parameter list.
+-- Signature changed (added p_customer_name, p_customer_phone), so drop the
+-- old version first: create-or-replace can't change a function's parameter list.
 drop function if exists place_order(text, jsonb, numeric, numeric, numeric, date);
+drop function if exists place_order(text, jsonb, numeric, numeric, numeric, date, text);
 
 create or replace function place_order(
   p_order_number text,
@@ -96,7 +101,9 @@ create or replace function place_order(
   p_delivery_fee numeric,
   p_total numeric,
   p_delivery_date date,
-  p_delivery_address text
+  p_delivery_address text,
+  p_customer_name text,
+  p_customer_phone text
 ) returns orders
 language plpgsql
 as $$
@@ -131,8 +138,8 @@ begin
     end if;
   end loop;
 
-  insert into orders (order_number, items, subtotal, delivery_fee, total, delivery_date, delivery_address)
-  values (p_order_number, p_items, p_subtotal, p_delivery_fee, p_total, p_delivery_date, p_delivery_address)
+  insert into orders (order_number, items, subtotal, delivery_fee, total, delivery_date, delivery_address, customer_name, customer_phone)
+  values (p_order_number, p_items, p_subtotal, p_delivery_fee, p_total, p_delivery_date, p_delivery_address, p_customer_name, p_customer_phone)
   returning * into new_order;
 
   return new_order;

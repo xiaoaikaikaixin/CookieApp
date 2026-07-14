@@ -38,6 +38,8 @@ interface Order {
   total: number;
   delivery_date: string | null;
   delivery_address: string | null;
+  customer_name: string | null;
+  customer_phone: string | null;
   status: string;
   created_at: string;
 }
@@ -204,6 +206,12 @@ export default function AdminDashboard({
                 Placed {new Date(order.created_at).toLocaleString("en-SG")}
                 {order.delivery_date && ` · Delivery ${order.delivery_date}`}
               </p>
+              {(order.customer_name || order.customer_phone) && (
+                <p className="mt-1 text-[11px] font-medium text-brown">
+                  👤 {order.customer_name ?? "Unknown"}
+                  {order.customer_phone && ` · ${order.customer_phone}`}
+                </p>
+              )}
               {order.delivery_address && (
                 <p className="mt-1 text-[11px] text-soft-brown">📍 {order.delivery_address}</p>
               )}

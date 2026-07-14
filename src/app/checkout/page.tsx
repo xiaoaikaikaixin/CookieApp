@@ -8,6 +8,7 @@ import Calendar from "@/components/Calendar";
 import { useCart, formatSGD } from "@/lib/cart-context";
 import { ADDRESS_STORAGE_KEY, DEFAULT_ADDRESS } from "@/lib/address";
 import { addOrderToHistory } from "@/lib/orderHistory";
+import { getCustomer, saveCustomer } from "@/lib/customer";
 
 const DATE_STORAGE_KEY = "lisa-cookies-delivery-date";
 
@@ -48,10 +49,18 @@ export default function CheckoutPage() {
   const [placing, setPlacing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [address, setAddress] = useState(DEFAULT_ADDRESS);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
   useEffect(() => {
     const saved = window.localStorage.getItem(ADDRESS_STORAGE_KEY);
     if (saved) setAddress(saved);
+
+    const customer = getCustomer();
+    if (customer) {
+      setName(customer.name);
+      setPhone(customer.phone);
+    }
 
     const savedDate = window.localStorage.getItem(DATE_STORAGE_KEY);
     if (savedDate) {
@@ -70,6 +79,10 @@ export default function CheckoutPage() {
   };
 
   const placeOrder = async () => {
+    if (!name.trim() || !phone.trim()) {
+      setError("Please enter your name and phone number.");
+      return;
+    }
     setPlacing(true);
     setError(null);
     try {
@@ -84,6 +97,8 @@ export default function CheckoutPage() {
           })),
           deliveryDate: toISODate(selectedDate),
           address,
+          customerName: name.trim(),
+          customerPhone: phone.trim(),
         }),
       });
       const data = await res.json();
@@ -103,6 +118,7 @@ export default function CheckoutPage() {
         deliveryDate: formatDisplayDate(selectedDate),
         placedAt: new Date().toISOString(),
       });
+      saveCustomer({ name: name.trim(), phone: phone.trim() });
       clear();
       router.push(`/order/confirmation?${params.toString()}`);
     } catch {
@@ -117,6 +133,24 @@ export default function CheckoutPage() {
       <BackHeader title="Checkout" />
 
       <div className="flex flex-col gap-4 px-5 py-5">
+        <div className="flex flex-col gap-3 rounded-lg bg-white p-3.5 card-shadow">
+          <h2 className="text-[13px] font-semibold text-brown">Contact Details</h2>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Your name"
+            className="rounded-md border border-beige px-3 py-2.5 text-[14px] text-brown"
+          />
+          <input
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="Phone number"
+            className="rounded-md border border-beige px-3 py-2.5 text-[14px] text-brown"
+          />
+        </div>
+
         <div className="flex flex-col gap-3 rounded-lg bg-white p-3.5 card-shadow">
           <div className="flex items-center gap-3">
             <button
@@ -204,7 +238,7 @@ export default function CheckoutPage() {
         {error && <p className="mb-2.5 text-[12px] font-medium text-red">{error}</p>}
         <button
           onClick={placeOrder}
-          disabled={items.length === 0 || placing}
+          disabled={items.length === 0 || placing || !name.trim() || !phone.trim()}
           className="flex h-[50px] w-full items-center justify-center rounded-md bg-gold text-[15px] font-bold text-white transition hover:brightness-95 disabled:opacity-50"
         >
           {placing ? "Placing Order…" : `Place Order · ${formatSGD(total)}`}

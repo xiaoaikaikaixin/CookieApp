@@ -32,6 +32,7 @@ export async function POST(req: Request) {
   const description = String(form.get("description") ?? "").trim();
   const stockRaw = form.get("stockQty");
   const sortOrderRaw = form.get("sortOrder");
+  const featuredHome = form.get("featuredHome") === "true";
   const images = form.getAll("images").filter((f): f is File => f instanceof File && f.size > 0);
 
   if (!name) {
@@ -93,6 +94,7 @@ export async function POST(req: Request) {
       description: description || null,
       stock_qty: stockQty,
       sort_order: sortOrder,
+      featured_home: featuredHome,
     })
     .select()
     .single();

@@ -10,6 +10,7 @@ export interface Product {
   description: string;
   ingredients: string;
   sortOrder?: number;
+  featuredHome?: boolean;
 }
 
 export interface GiftSet {
@@ -20,6 +21,7 @@ export interface GiftSet {
   image: string;
   images?: string[];
   sortOrder?: number;
+  featuredHome?: boolean;
 }
 
 export const products: Product[] = [

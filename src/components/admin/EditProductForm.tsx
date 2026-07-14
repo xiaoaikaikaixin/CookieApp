@@ -19,6 +19,7 @@ export default function EditProductForm({ product }: { product: Product }) {
   const [sortOrder, setSortOrder] = useState(String(product.sortOrder ?? 0));
   const [description, setDescription] = useState(product.description);
   const [ingredients, setIngredients] = useState(product.ingredients);
+  const [featuredHome, setFeaturedHome] = useState(product.featuredHome ?? false);
   const [existingImages, setExistingImages] = useState(product.images ?? [product.image]);
   const [newImageFiles, setNewImageFiles] = useState<File[]>([]);
   const [newImagePreviews, setNewImagePreviews] = useState<string[]>([]);
@@ -60,6 +61,7 @@ export default function EditProductForm({ product }: { product: Product }) {
       form.set("sortOrder", sortOrder);
       form.set("description", description.trim());
       form.set("ingredients", ingredients.trim());
+      form.set("featuredHome", featuredHome ? "true" : "false");
       form.set("keepImages", JSON.stringify(existingImages));
       newImageFiles.forEach((file) => form.append("images", file));
 
@@ -162,6 +164,16 @@ export default function EditProductForm({ product }: { product: Product }) {
               </option>
             ))}
           </select>
+        </label>
+
+        <label className="flex items-center gap-2.5">
+          <input
+            type="checkbox"
+            checked={featuredHome}
+            onChange={(e) => setFeaturedHome(e.target.checked)}
+            className="h-4 w-4 rounded border-beige accent-gold"
+          />
+          <span className="text-[13px] font-semibold text-brown">Best Sellers in Homepage</span>
         </label>
 
         <div className="flex gap-3">

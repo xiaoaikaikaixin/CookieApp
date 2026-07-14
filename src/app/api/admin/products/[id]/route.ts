@@ -29,6 +29,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   const description = String(form.get("description") ?? "").trim();
   const ingredients = String(form.get("ingredients") ?? "").trim();
   const sortOrderRaw = form.get("sortOrder");
+  const featuredHome = form.get("featuredHome") === "true";
   const newImages = form.getAll("images").filter((f): f is File => f instanceof File && f.size > 0);
   const keepImagesRaw = form.get("keepImages");
 
@@ -97,6 +98,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
       description: description || null,
       ingredients: ingredients || null,
       sort_order: sortOrder,
+      featured_home: featuredHome,
     })
     .eq("id", id)
     .select()

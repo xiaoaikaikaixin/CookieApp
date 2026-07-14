@@ -15,6 +15,7 @@ interface ProductRow {
   reviews: number | null;
   stock_qty: number;
   sort_order: number;
+  featured_home: boolean | null;
 }
 
 function mapRow(row: ProductRow): Product & { stockQty: number; sortOrder: number } {
@@ -31,6 +32,7 @@ function mapRow(row: ProductRow): Product & { stockQty: number; sortOrder: numbe
     reviews: row.reviews ?? 0,
     stockQty: row.stock_qty,
     sortOrder: row.sort_order ?? 0,
+    featuredHome: row.featured_home ?? false,
   };
 }
 
@@ -61,6 +63,7 @@ interface GiftSetRow {
   description: string | null;
   stock_qty: number;
   sort_order: number;
+  featured_home: boolean | null;
 }
 
 function mapGiftSetRow(row: GiftSetRow): GiftSet & { stockQty: number; sortOrder: number } {
@@ -73,6 +76,7 @@ function mapGiftSetRow(row: GiftSetRow): GiftSet & { stockQty: number; sortOrder
     desc: row.description ?? "",
     stockQty: row.stock_qty,
     sortOrder: row.sort_order ?? 0,
+    featuredHome: row.featured_home ?? false,
   };
 }
 

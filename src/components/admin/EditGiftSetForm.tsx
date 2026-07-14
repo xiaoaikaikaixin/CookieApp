@@ -11,6 +11,7 @@ export default function EditGiftSetForm({ giftSet }: { giftSet: GiftSet }) {
   const [price, setPrice] = useState(String(giftSet.price));
   const [sortOrder, setSortOrder] = useState(String(giftSet.sortOrder ?? 0));
   const [description, setDescription] = useState(giftSet.desc);
+  const [featuredHome, setFeaturedHome] = useState(giftSet.featuredHome ?? false);
   const [existingImages, setExistingImages] = useState(giftSet.images ?? [giftSet.image]);
   const [newImageFiles, setNewImageFiles] = useState<File[]>([]);
   const [newImagePreviews, setNewImagePreviews] = useState<string[]>([]);
@@ -50,6 +51,7 @@ export default function EditGiftSetForm({ giftSet }: { giftSet: GiftSet }) {
       form.set("price", price);
       form.set("sortOrder", sortOrder);
       form.set("description", description.trim());
+      form.set("featuredHome", featuredHome ? "true" : "false");
       form.set("keepImages", JSON.stringify(existingImages));
       newImageFiles.forEach((file) => form.append("images", file));
 
@@ -137,6 +139,16 @@ export default function EditGiftSetForm({ giftSet }: { giftSet: GiftSet }) {
           <span className="text-[11px] text-soft-brown">
             Tap ✕ to remove a photo. Add more with the picker above — the first photo is the main thumbnail.
           </span>
+        </label>
+
+        <label className="flex items-center gap-2.5">
+          <input
+            type="checkbox"
+            checked={featuredHome}
+            onChange={(e) => setFeaturedHome(e.target.checked)}
+            className="h-4 w-4 rounded border-beige accent-gold"
+          />
+          <span className="text-[13px] font-semibold text-brown">Gift Box Collection in Homepage</span>
         </label>
 
         <div className="flex gap-3">

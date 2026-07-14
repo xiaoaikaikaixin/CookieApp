@@ -11,6 +11,7 @@ export default function AddGiftSetPage() {
   const [stockQty, setStockQty] = useState("20");
   const [sortOrder, setSortOrder] = useState("");
   const [description, setDescription] = useState("");
+  const [featuredHome, setFeaturedHome] = useState(false);
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
@@ -41,6 +42,7 @@ export default function AddGiftSetPage() {
       form.set("stockQty", stockQty || "0");
       if (sortOrder.trim()) form.set("sortOrder", sortOrder.trim());
       form.set("description", description.trim());
+      form.set("featuredHome", featuredHome ? "true" : "false");
       imageFiles.forEach((file) => form.append("images", file));
 
       const res = await fetch("/api/admin/gift-sets", { method: "POST", body: form });
@@ -111,6 +113,16 @@ export default function AddGiftSetPage() {
           <span className="text-[11px] text-soft-brown">
             You can select multiple photos. The first one is used as the main thumbnail.
           </span>
+        </label>
+
+        <label className="flex items-center gap-2.5">
+          <input
+            type="checkbox"
+            checked={featuredHome}
+            onChange={(e) => setFeaturedHome(e.target.checked)}
+            className="h-4 w-4 rounded border-beige accent-gold"
+          />
+          <span className="text-[13px] font-semibold text-brown">Gift Box Collection in Homepage</span>
         </label>
 
         <div className="flex gap-3">

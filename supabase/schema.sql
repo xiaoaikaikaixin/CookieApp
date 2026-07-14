@@ -19,6 +19,7 @@ create table if not exists products (
 -- Safe to re-run: adds the column if this table already existed without it.
 alter table products add column if not exists sort_order int not null default 0;
 alter table products add column if not exists images text[] not null default '{}';
+alter table products add column if not exists featured_home boolean not null default false;
 
 -- One-time backfill: any product with an empty gallery gets its existing
 -- single "image" added as the first (and so far only) gallery photo.
@@ -50,6 +51,7 @@ create table if not exists gift_sets (
 -- Safe to re-run: adds the columns if this table already existed without them.
 alter table gift_sets add column if not exists sort_order int not null default 0;
 alter table gift_sets add column if not exists images text[] not null default '{}';
+alter table gift_sets add column if not exists featured_home boolean not null default false;
 
 -- One-time backfill: any gift set with an empty gallery gets its existing
 -- single "image" added as the first (and so far only) gallery photo.

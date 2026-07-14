@@ -19,6 +19,7 @@ export default function AddProductPage() {
   const [sortOrder, setSortOrder] = useState("");
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState("");
+  const [featuredHome, setFeaturedHome] = useState(false);
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
@@ -51,6 +52,7 @@ export default function AddProductPage() {
       if (sortOrder.trim()) form.set("sortOrder", sortOrder.trim());
       form.set("description", description.trim());
       form.set("ingredients", ingredients.trim());
+      form.set("featuredHome", featuredHome ? "true" : "false");
       imageFiles.forEach((file) => form.append("images", file));
 
       const res = await fetch("/api/admin/products", { method: "POST", body: form });
@@ -136,6 +138,16 @@ export default function AddProductPage() {
               </option>
             ))}
           </select>
+        </label>
+
+        <label className="flex items-center gap-2.5">
+          <input
+            type="checkbox"
+            checked={featuredHome}
+            onChange={(e) => setFeaturedHome(e.target.checked)}
+            className="h-4 w-4 rounded border-beige accent-gold"
+          />
+          <span className="text-[13px] font-semibold text-brown">Best Sellers in Homepage</span>
         </label>
 
         <div className="flex gap-3">

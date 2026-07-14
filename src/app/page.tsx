@@ -3,16 +3,17 @@ import Link from "next/link";
 import BottomNav from "@/components/BottomNav";
 import ProductCard from "@/components/ProductCard";
 import GiftCard from "@/components/GiftCard";
-import { categories, giftSets } from "@/lib/products";
-import { getAllProducts } from "@/lib/products-server";
+import { categories } from "@/lib/products";
+import { getAllProducts, getAllGiftSets } from "@/lib/products-server";
 
 export const dynamic = "force-dynamic";
 
-const featuredGifts = giftSets.slice(0, 2);
-
 export default async function HomePage() {
-  const products = await getAllProducts();
-  const bestSellers = products.slice(0, 4);
+  const [products, giftSets] = await Promise.all([getAllProducts(), getAllGiftSets()]);
+  const featuredProducts = products.filter((p) => p.featuredHome);
+  const bestSellers = featuredProducts.length > 0 ? featuredProducts : products.slice(0, 4);
+  const featuredGiftSets = giftSets.filter((g) => g.featuredHome);
+  const featuredGifts = featuredGiftSets.length > 0 ? featuredGiftSets : giftSets.slice(0, 2);
 
   return (
     <div className="flex min-h-screen flex-col">

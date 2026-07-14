@@ -111,7 +111,12 @@ export default async function HomePage() {
       </section>
 
       <section className="flex flex-col gap-4 px-5 pt-7">
-        <h3 className="font-heading text-[20px] font-bold text-brown">Best Sellers</h3>
+        <div className="flex items-center justify-between">
+          <h3 className="font-heading text-[20px] font-bold text-brown">Best Sellers</h3>
+          <Link href="/products" className="flex items-center gap-1 text-[12px] font-semibold text-gold">
+            View All <span>›</span>
+          </Link>
+        </div>
         <div className="grid grid-cols-2 gap-3">
           {bestSellers.map((p) => (
             <ProductCard key={p.id} product={p} />

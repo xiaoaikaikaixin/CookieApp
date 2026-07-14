@@ -138,14 +138,20 @@ export default function CheckoutPage() {
           <input
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value);
+              saveCustomer({ name: e.target.value, phone });
+            }}
             placeholder="Your name"
             className="rounded-md border border-beige px-3 py-2.5 text-[14px] text-brown"
           />
           <input
             type="tel"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => {
+              setPhone(e.target.value);
+              saveCustomer({ name, phone: e.target.value });
+            }}
             placeholder="Phone number"
             className="rounded-md border border-beige px-3 py-2.5 text-[14px] text-brown"
           />

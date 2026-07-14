@@ -132,11 +132,9 @@ export default async function HomePage() {
             View All <span>›</span>
           </Link>
         </div>
-        <div className="flex gap-3">
+        <div className="grid grid-cols-2 gap-3">
           {featuredGifts.map((g) => (
-            <div key={g.id} className="flex-1">
-              <GiftCard gift={g} />
-            </div>
+            <GiftCard key={g.id} gift={g} />
           ))}
         </div>
       </section>

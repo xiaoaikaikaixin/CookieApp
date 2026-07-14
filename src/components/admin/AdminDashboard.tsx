@@ -388,48 +388,52 @@ function StockRow({
     <div
       ref={setNodeRef}
       style={style}
-      className="flex items-center gap-3 rounded-lg bg-white p-3 card-shadow"
+      className="flex flex-col gap-2 rounded-lg bg-white p-3 card-shadow"
     >
-      {editable && (
+      <div className="flex items-center gap-3">
+        {editable && (
+          <button
+            {...attributes}
+            {...listeners}
+            aria-label="Drag to reorder"
+            className="touch-none cursor-grab px-0.5 text-[16px] text-soft-brown active:cursor-grabbing"
+          >
+            ⋮⋮
+          </button>
+        )}
+        {item.sort_order !== undefined && (
+          <span className="w-7 flex-shrink-0 text-[11px] font-semibold text-soft-brown">
+            #{item.sort_order}
+          </span>
+        )}
+        <span className="flex-1 text-[13px] font-medium text-brown">{item.name}</span>
+        {editable && (
+          <Link
+            href={`/admin/${kind === "giftSet" ? "gift-sets" : "products"}/${item.id}/edit`}
+            className="flex-shrink-0 text-[11px] font-semibold text-gold"
+          >
+            Edit
+          </Link>
+        )}
+      </div>
+      <div className="flex items-center justify-end gap-2">
+        <span className="flex-1 text-[11px] text-soft-brown">current: {item.stock_qty}</span>
+        <input
+          type="number"
+          min={0}
+          placeholder={String(item.stock_qty)}
+          value={draft}
+          onChange={(e) => onDraftChange(e.target.value)}
+          className="w-16 flex-shrink-0 rounded-md border border-beige px-2 py-1 text-[13px] text-brown"
+        />
         <button
-          {...attributes}
-          {...listeners}
-          aria-label="Drag to reorder"
-          className="touch-none cursor-grab px-0.5 text-[16px] text-soft-brown active:cursor-grabbing"
+          onClick={onSave}
+          disabled={saving || !draft}
+          className="flex-shrink-0 rounded-md bg-gold px-3 py-1.5 text-[12px] font-semibold text-white disabled:opacity-40"
         >
-          ⋮⋮
+          {saving ? "…" : saved ? "✓" : "Update"}
         </button>
-      )}
-      {item.sort_order !== undefined && (
-        <span className="w-7 flex-shrink-0 text-[11px] font-semibold text-soft-brown">
-          #{item.sort_order}
-        </span>
-      )}
-      <span className="flex-1 text-[13px] font-medium text-brown">{item.name}</span>
-      {editable && (
-        <Link
-          href={`/admin/${kind === "giftSet" ? "gift-sets" : "products"}/${item.id}/edit`}
-          className="text-[11px] font-semibold text-gold"
-        >
-          Edit
-        </Link>
-      )}
-      <span className="text-[11px] text-soft-brown">current: {item.stock_qty}</span>
-      <input
-        type="number"
-        min={0}
-        placeholder={String(item.stock_qty)}
-        value={draft}
-        onChange={(e) => onDraftChange(e.target.value)}
-        className="w-16 rounded-md border border-beige px-2 py-1 text-[13px] text-brown"
-      />
-      <button
-        onClick={onSave}
-        disabled={saving || !draft}
-        className="rounded-md bg-gold px-3 py-1.5 text-[12px] font-semibold text-white disabled:opacity-40"
-      >
-        {saving ? "…" : saved ? "✓" : "Update"}
-      </button>
+      </div>
     </div>
   );
 }
